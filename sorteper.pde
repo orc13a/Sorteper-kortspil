@@ -3,6 +3,6 @@ void setup() {
 }
 
 void draw() {
-  clear();
+  clear();//hello
   text("Hej", mouseX-10, mouseY-10);
 }

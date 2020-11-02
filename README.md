@@ -6,4 +6,4 @@
 1. Åben den downloadede udgivelse / release. [Find dem her](https://github.com/orc13a/Sorteper-kortspil/releases)
 1. Navigere til mappen `sorteper_kortspil`.
 1. Åben filen `sorteper_kortspil.pde`.
-1. Start programmet / spillet, oppe i højre hørne eller `ctrl + r`.
+1. Start programmet / spillet, oppe i højre hjørne eller `ctrl + r`.

@@ -21,7 +21,7 @@ void playersAmount() {
     // Man kan kun trykke ENTER når man har valgt
     if(key == ENTER && players != 0) {
       playersAmountSet = true;
-    } else if(key == ENTER && players == 0) {
+    } else if(key == ENTER && players == 0) { // Hvis man trukker enter uden at have givet antal spillere
       fill(255, 0, 0); // Sætter farven til rød
       text("Du skal vælge hvor mange der skal spille", width/2, height/2-100);
       fill(0); // Sætter farven tilbage til sort
@@ -31,29 +31,35 @@ void playersAmount() {
 
 // Så man kan skrive spillernes navne
 void playersNames() {
+  // Kører kun hvis man har givet antal
   if(playersNameSet == false && playersAmountSet == true) {
     // Man kan kun skrive navne så længe de tog ikke er det samme:
     if(givNameToPlayer != players && playersNameSet == false) {
       if(key != ENTER && key != TAB && key != CONTROL && key != ESC && key != BACKSPACE) {
-        userInput = userInput += key;
+        userInput = userInput += key; // Laver den string man skriver 
         textSize(26);
-        text(userInput, width/2, height/2-150);
+        text(userInput, width/2, height/2-150); // Viser den string
       }
+      // Hvis man trykker enter og har givet et navn
       if(key == ENTER && userInput != "") {
         playerNames[givNameToPlayer] = userInput;
         userInput = "";
         givNameToPlayer++;
+        // Når man har givet navn til alle spillere
         if(givNameToPlayer == players) {
           continueOrChangeName = true;
           playersNameSet = true;
         }
       }
+      // Viser dette tekst når man skal skrive et navn
       if(userInput == "" && givNameToPlayer != players) {
         text("- skriv navn -", width/2, height/2-150);
       }
+      // Hvis man trykker backspace så rydder den stringen
       if(key == BACKSPACE && userInput != "") {
         userInput = "";
       }
+      // Når man begynder at skrive et navn
       if(userInput != "") {
         textSize(defaultTextSize);
         text("[BACKSPACE] for at ryde navn", width/2, height/2-100);
@@ -71,6 +77,7 @@ void printPlayersNames() {
   
   textSize(defaultTextSize);
   textAlign(LEFT); // Navne skal bruge left for at stå ordenligt
+  // Går ingen alle navne i arrayen, viser kun dem som ikke er null
   for(int i = 0; i < playerNames.length; i++) {
     if(playerNames[i] != null) {
       text((i + 1) + ". " + playerNames[i], width/2-50, (height/2+200 + (i * 25)));
@@ -104,11 +111,13 @@ void confirmNames() {
 // Så der kan ændre en spillers navn
 void changePlayerName() {
   if(changePlayerName == true && playersNameSet == true && playersAmountSet == true) {
-
+    
+    // Man vælger spillernes nummer og kun de taster virker
     if(givNameToPlayer == 0 && int(str(key)) >= 1 && int(str(key)) <= (players) && key != ENTER && key != TAB && key != CONTROL) {
       givNameToPlayer = int(str(key));
     }
     
+    // Hvis man har valgt en spiller, kan man skrive
     if(givNameToPlayer != 0) {
       if(key != ENTER && key != TAB && key != CONTROL && key != ESC && key != BACKSPACE) {
         if(changeNameUserInput > 0) {
@@ -120,22 +129,24 @@ void changePlayerName() {
         textSize(26);
         text(userInput, width/2, height/2-150);
       }
-
+      
+      // Når man skal skrive navnet
       if(userInput == "" && givNameToPlayer != 0) {
         textSize(defaultTextSize);
         text("- skriv navn -", width/2, height/2-150);
       }
+      
+      // Til at ryde stringen
       if(key == BACKSPACE && userInput != "") {
         userInput = "";
       }
     }
     
-    
-    
+    // Når man trykker enter og man har skrevet det nye navn
     if(key == ENTER && givNameToPlayer != 0) {
-      playerNames[givNameToPlayer - 1] = userInput;
-      changeNameUserInput--;
-      userInput = "";
+      playerNames[givNameToPlayer - 1] = userInput; // Sætter navnet
+      changeNameUserInput--; // Tilbage til 0
+      userInput = ""; // Til ingen ting
       changePlayerName = false;
       continueOrChangeName = true;
     } else if(key == ENTER && givNameToPlayer == 0 && userInput == "") { // Hvis man trykker enter uden at have valgt en spiller

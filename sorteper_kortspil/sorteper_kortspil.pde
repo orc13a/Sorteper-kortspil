@@ -22,7 +22,5 @@ void keyPressed() {
   clear();
   background(defBgColor[0], defBgColor[1], defBgColor[2]); // Hvid baggroundsfarve og når man har klikket
   
-  if(playerAmountAndNamesSet == false) {
   
-  }
 }

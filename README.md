@@ -10,6 +10,6 @@ Man kan være 2 - 6 spillere, det er co-op multiplayer. Man skal skiftes til at 
 1. Åben filen `sorteper_kortspil.pde`.
 1. Start programmet / spillet, oppe i højre hjørne eller `ctrl + r`.
 
-###### Lavet af 
+#### Lavet af 
 Oliver C, Kasper, Gustav & Celia
 2.i Kerm/It - H. C. Ørsted Gymnasiet Lyngby

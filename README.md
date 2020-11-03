@@ -1,7 +1,7 @@
 # Sorteper kortspil
 Kortspillet Sorteper er det som du kender, dette er bare en simple digital version.
 * Man kan være 2 - 6 spillere.
-* CO-OP multiplayer, man skal skiftes til at side med skærmen.
+* Pass-around multiplayer, man skal skiftes til at side med skærmen.
 
 ## Sådan spiller du vores kortspil
 1. Du skal have processing version `3.5.4` eller ældre installeret på din computer. [Download Processing her](https://processing.org/download/)

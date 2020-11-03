@@ -1,5 +1,5 @@
 # Sorteper kortspil
-Dette sorteper er det som du kender, dette er bare en digital version.
+Kortspillet Sorteper er det som du kender, dette er bare en simple digital version.
 * Man kan være 2 - 6 spillere.
 * CO-OP multiplayer, man skal skiftes til at side med skærmen.
 
@@ -12,5 +12,5 @@ Dette sorteper er det som du kender, dette er bare en digital version.
 1. Start programmet / spillet, oppe i højre hjørne eller `ctrl + r`.
 
 #### Lavet af 
-Oliver C, Kasper, Gustav & Celia<br>
+Oliver C, Kasper, Gustav & Celia.<br>
 2.i Kerm/It - H. C. Ørsted Gymnasiet Lyngby

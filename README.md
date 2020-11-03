@@ -9,7 +9,7 @@ Kortspillet Sorteper er det som du kender, dette er bare en simple digital versi
 1. Åben den downloadede udgivelse / release mappe.
 1. Navigere til mappen `sorteper_kortspil`.
 1. Åben filen `sorteper_kortspil.pde`.
-1. Start programmet / spillet, oppe i højre hjørne eller `ctrl + r`.
+1. Start programmet / spillet, oppe i højre hjørne eller `ctrl + r` på en Windows og `command + r` på Mac.
 
 #### Lavet af 
 Oliver C, Kasper, Gustav & Celia.<br>

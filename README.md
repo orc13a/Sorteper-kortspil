@@ -12,5 +12,5 @@ Dette sorteper er det som du kender, dette er bare en digital version.
 1. Start programmet / spillet, oppe i højre hjørne eller `ctrl + r`.
 
 #### Lavet af 
-Oliver C, Kasper, Gustav & Celia
+Oliver C, Kasper, Gustav & Celia<br>
 2.i Kerm/It - H. C. Ørsted Gymnasiet Lyngby

@@ -2,6 +2,68 @@ int[] defBgColor = {255, 255, 255};
 int defaultTextSize = 12;
 int maxPlayers = 6; // Dette siger hvor mange spillere der kan spille på samme tid. [HARD CODED]
 
+int[] allCardsIds = { // Dividere med 13 for at finde par, så fx 2*13 = (26)/13 = 2 
+  1,
+  2, // Par med 26
+  3, // Par med 39
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10,
+  11,
+  12,
+  13,
+  26, // Par med 2
+  39, // Par med 3
+  52,
+  65,
+  78,
+  91,
+  104,
+  117,
+  130,
+  143,
+  156,
+  666 // Sorteper
+}; 
+
+String[] alleKortNavne = {
+  "Dva red",
+  "Reinhardt red",
+  "Winston red",
+  "Genji red",
+  "Hanzo red",
+  "Tracer red",
+  "Soldier red",
+  "Bastion red",
+  "Reaper red",
+  "Mercy red",
+  "Zenyatta red",
+  "Ana red",
+  "Dva blue",
+  "Reinhardt blue",
+  "Winston blue",
+  "Genji blue",
+  "Hanzo blue",
+  "Tracer blue",
+  "Soldier blue",
+  "Bastion blue",
+  "Reaper blue",
+  "Mercy blue",
+  "Zenyatta blue",
+  "Ana blue",
+  "Doomfist"
+};
+
+// [DEV] 
+boolean playerAmountAndNamesSet = true;
+String[] playerNames = {"Oliver", "Nixi", "Gustav", "Kasper", null, null};
+int players = 4;
+//
+
 void setup() {
   fullScreen(); // Spillet er i fuldskærm
   background(defBgColor[0], defBgColor[1], defBgColor[2]);
@@ -22,5 +84,7 @@ void keyPressed() {
   clear();
   background(defBgColor[0], defBgColor[1], defBgColor[2]); // Hvid baggroundsfarve og når man har klikket
   
-  
+  if(playerAmountAndNamesSet == true) {
+    
+  }
 }

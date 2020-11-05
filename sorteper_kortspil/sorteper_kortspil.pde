@@ -1,3 +1,6 @@
+// Spil version [VIGTIGT](SKAL ændres hver gang der er en ny version af kortspillet)
+String gameVersion = "00.01.00";
+// ---------------------------------------------------------------------------------
 int[] defBgColor = {255, 255, 255};
 int defaultTextSize = 16;
 int maxPlayers = 6; // Dette siger hvor mange spillere der kan spille på samme tid. [HARD CODED]
@@ -14,6 +17,9 @@ void setup() {
   textSize(20);
   text("Tryk på et bogstav for at starte",  width/2, height-100);
   textSize(defaultTextSize); // ændre skriften tilbage
+  fill(#a6a6a6); // Går version skrifen grå
+  text("version: "+gameVersion, 100, height-25);
+  fill(0); // Tilbage til sort
 }
 
 void draw() {

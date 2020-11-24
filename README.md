@@ -1,4 +1,5 @@
 # Sorteper kortspil
+![Sorteper](sorteper.jpeg)
 Kortspillet Sorteper er det som du kender, dette er bare en simple digital version.
 * Man kan være 2 - 6 spillere.
 * Pass-around multiplayer, man skal skiftes til at side med skærmen.

@@ -58,7 +58,7 @@ String[] alleKortNavne = {
   "Doomfist"
 };
 
-// [DEV] 
+// [DEV] vars
 boolean playerAmountAndNamesSet = true;
 String[] playerNames = {"Oliver", "Nixi", "Gustav", "Kasper", null, null};
 int players = 4;

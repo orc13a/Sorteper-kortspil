@@ -2,6 +2,19 @@ int[] defBgColor = {255, 255, 255};
 int defaultTextSize = 12;
 int maxPlayers = 6; // Dette siger hvor mange spillere der kan spille på samme tid. [HARD CODED]
 
+// State der siger om spillerene skal have kort
+boolean giveCards = true;
+
+int[] cardsGivenOut = new int[25];
+
+// Spillernes kort (ID)
+int[] player1Cards = new int[25];
+int[] player2Cards = new int[25];
+int[] player3Cards = new int[25];
+int[] player4Cards = new int[25];
+int[] player5Cards = new int[25];
+int[] player6Cards = new int[25];
+
 int[] allCardsIds = { // Dividere med 13 for at finde par, så fx 2*13 = (26)/13 = 2 
   1,
   2, // Par med 26
@@ -85,6 +98,9 @@ void keyPressed() {
   background(defBgColor[0], defBgColor[1], defBgColor[2]); // Hvid baggroundsfarve og når man har klikket
   
   if(playerAmountAndNamesSet == true) {
-    
+    if(giveCards == true) {
+      handOutCards(players);
+      println(player1Cards);
+    }
   }
 }

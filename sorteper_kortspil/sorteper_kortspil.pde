@@ -12,6 +12,7 @@ int defaultTextSize = 12;
 int header1 = 60;
 int header2 = 45;
 int maxPlayers = 6; // Dette siger hvor mange spillere der kan spille på samme tid. [HARD CODED]
+color owOrange = #F79D1A;
 
 boolean titleScreen = true;
 boolean gameStarted = true; // [DEV] skal være false standard
@@ -28,6 +29,7 @@ void setup() {
   titleScreenAudio.loop();
   titleScreenAudio.amp(0.2); // volume (0.0 - 1.0) [float]
   
+  rectMode(CENTER);
   imageMode(CENTER);
    
   owTitleDCLImage = loadImage("ow-title-dlc.png");

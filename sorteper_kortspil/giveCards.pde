@@ -17,6 +17,7 @@ void giveCards() {
     if(kortGivet.size() != 0) {
       while(kort == kortGivet.get(checkKort)) {
         kortIndex = int(random(0, alleKort.size()));
+        kort = alleKort.get(kortIndex);
         checkKort++;
       }
     }

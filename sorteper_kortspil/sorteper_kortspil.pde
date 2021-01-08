@@ -32,6 +32,7 @@ void setup() {
    
   owTitleDCLImage = loadImage("ow-title-dlc.png");
   
+  choosePlayers();
   lavKort();
 }
 
@@ -62,7 +63,7 @@ void draw() {
   }
   
   // Giver kortene ud og først efter kan spillet starte
-  if(playerNamesAndAmoutIsSet == true && playerNamesAndAmoutIsSet == true && cardGiven == false) {
+  if(playerNamesAndAmoutIsSet == true && cardGiven == false) {
     giveCards();
   }
   
@@ -76,9 +77,14 @@ void mousePressed() {
 }
 
 void keyPressed() {
-  if(titleScreen == true) {
+  /*if(titleScreen == true) {
     playerNamesAndAmoutSet = true;
     //titleScreenAudio.stop();
     titleScreen = false;
+  }*/
+  titleScreen = false;
+  // [DEV]
+  if(titleScreen == false) {
+    playerNamesAndAmoutIsSet = true;
   }
 }

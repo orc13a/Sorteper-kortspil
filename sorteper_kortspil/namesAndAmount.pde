@@ -2,6 +2,11 @@ boolean playerNamesAndAmoutSet = false;
 boolean playerNamesAndAmoutIsSet = true; // [DEV] skal være false standard
 ArrayList<Player> alleSpillere = new ArrayList<Player>();
 
+// [DEV] vars
+String[] playerNames = {"Oliver", "Nixi", "Gustav", "Kasper", null, null};
+int players = 4;
+//
+
 void choosePlayers() {
   textAlign(CENTER);
   

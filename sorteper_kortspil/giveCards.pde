@@ -1,15 +1,35 @@
 boolean cardGiven = false;
 ArrayList<Card> alleKort = new ArrayList<Card>();
+ArrayList<Card> kortGivet = new ArrayList<Card>();
 
 int givKort = 0;
-int givSpillerKort = 0;
+int givSpillerKort = 0; // Index i alle spiller arrayen, altså den spiller vi vil give kort til
+int checkKort = 0;
 
 void giveCards() {
   while(givKort != alleKort.size()) {
     
+    int kortIndex = int(random(0, alleKort.size()));
+    Card kort = alleKort.get(kortIndex);
     
-    if(givSpillerKort == alleSpillere.size()) {
+    Player spiller = alleSpillere.get(givSpillerKort);
+    
+    if(kortGivet.size() != 0) {
+      while(kort == kortGivet.get(checkKort)) {
+        kortIndex = int(random(0, alleKort.size()));
+        checkKort++;
+      }
+    }
+    
+    spiller.kort.add(kort);
+    kortGivet.add(kort);
+
+    givKort++; // Tæller hvor mange kort er blivet delt ud (25 maks)
+    
+    if(givSpillerKort == alleSpillere.size() - 1) {
       givSpillerKort = 0;
+    } else {
+      givSpillerKort++;
     }
   }
 }

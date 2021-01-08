@@ -14,7 +14,7 @@ int header2 = 45;
 int maxPlayers = 6; // Dette siger hvor mange spillere der kan spille på samme tid. [HARD CODED]
 
 boolean titleScreen = true;
-boolean gameStarted = true; // [DEV] skal være false standard
+boolean gameStarted = false; // [DEV] skal være false standard
 
 void setup() {
   fullScreen(); // Spillet er i fuldskærm
@@ -58,15 +58,16 @@ void draw() {
   
   if(playerNamesAndAmoutSet == true && playerNamesAndAmoutIsSet == true) {
     choosePlayers();
+    gameStarted = true;
   }
   
-  /*if(playerNamesAndAmoutIsSet == true && gameStarted == true && cardGiven == false) {
+  if(playerNamesAndAmoutIsSet == true && gameStarted == true && cardGiven == false) {
     giveCards();
   }
   
   if(playerNamesAndAmoutIsSet == true && gameStarted == true && cardGiven == true) {
     
-  }*/
+  }
 }
 
 void mousePressed() {

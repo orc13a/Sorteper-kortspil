@@ -32,7 +32,7 @@ void setup() {
    
   owTitleDCLImage = loadImage("ow-title-dlc.png");
   
-  //lavKort();
+  lavKort();
 }
 
 //Button testBtn;

@@ -32,6 +32,8 @@ void giveCards() {
       givSpillerKort++;
     }
   }
+  
+  cardGiven = true;
 }
 
 // Laver alle kort

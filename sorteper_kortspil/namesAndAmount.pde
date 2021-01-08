@@ -1,5 +1,5 @@
 boolean playerNamesAndAmoutSet = false;
-boolean playerNamesAndAmoutIsSet = true; // [DEV] skal være false standard
+boolean playerNamesAndAmoutIsSet = false; // [DEV] skal være false standard
 ArrayList<Player> alleSpillere = new ArrayList<Player>();
 
 // [DEV] vars

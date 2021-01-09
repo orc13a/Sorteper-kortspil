@@ -6,13 +6,16 @@ int givKort = 0;
 int givSpillerKort = 0; // Index i alle spiller arrayen, altså den spiller vi vil give kort til
 int checkKort = 0;
 
+int kortIndex;
+Card kort;
+
 void giveCards() {
   while(givKort != alleKort.size()) {
     
-    int kortIndex = int(random(0, alleKort.size()));
-    Card kort = alleKort.get(kortIndex);
-    
     Player spiller = alleSpillere.get(givSpillerKort);
+    
+    kortIndex = int(random(0, alleKort.size()));
+    kort = alleKort.get(kortIndex);
     
     if(kortGivet.size() != 0) {
       while(kort == kortGivet.get(checkKort)) {

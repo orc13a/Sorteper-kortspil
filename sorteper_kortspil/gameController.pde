@@ -2,7 +2,13 @@ int playersTurn = 0;
 
 void game() {
   Player spiller = alleSpillere.get(playersTurn);
-  
+  ui(spiller);
+}
+
+void ui(Player spillerTur) { // UI = user interface
+  //Player spiller = alleSpillere.get(playersTurn);
+  Player spiller = spillerTur;
+
   fill(owOrange);
   stroke(owOrange);
   rect(190, 60, 300, 60, 10, 10, 0, 0);

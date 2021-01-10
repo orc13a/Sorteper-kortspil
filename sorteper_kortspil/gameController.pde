@@ -5,10 +5,11 @@ void game() {
   ui(spiller);
 }
 
-void ui(Player spillerTur) { // UI = user interface
+void ui(Player spillersTur) { // UI = user interface
   //Player spiller = alleSpillere.get(playersTurn);
-  Player spiller = spillerTur;
+  Player spiller = spillersTur;
 
+  // Viser hvilkens spillers tur det er
   fill(owOrange);
   stroke(owOrange);
   rect(190, 60, 300, 60, 10, 10, 0, 0);
@@ -26,4 +27,9 @@ void ui(Player spillerTur) { // UI = user interface
   textSize(25);
   text(spiller.username, 50, 95);
   textAlign(CENTER);
+  //--
+  
+  // Viser spillerens antal par
+  
+  //--
 }

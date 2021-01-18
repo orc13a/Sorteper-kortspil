@@ -20,9 +20,30 @@ void gameUi(Player spillersTur) { // UI = user interface
   textSize(25);
   text(spiller.username, 50, 95);
   textAlign(CENTER);
+  
+
+  
   //--
   
   // Viser spillerens antal par
+  fill(owOrange);
+  stroke(owOrange);
+  rect(80, 150, 80, 50, 10, 10, 10, 10);
   
+  fill(255);
+  stroke(owOrange);
+  strokeWeight(2.5);
+  rect(80, 175, 80, 50, 10, 10, 10, 10);
+  
+  fill(0);
+  
+  textSize(30);
+  text(spiller.par, 80, 185);
+  textAlign(CENTER);
+  
+  fill(0);
+  textAlign(LEFT);
+  textSize(16);
+  text("Par", 50, 143);
   //--
 }

@@ -3,6 +3,9 @@ import processing.sound.*;
 // Laver en varibale til title screen musik
 SoundFile titleScreenAudio;
 
+// Fonts
+PFont robo;
+
 // En class som er en del af processing
 // Laver billede variabel
 PImage owTitleDCLImage;
@@ -22,6 +25,7 @@ void setup() {
   background(defBgColor[0], defBgColor[1], defBgColor[2]);
   frameRate(60);
   smooth(8);
+  pixelDensity(2);
 
   // https://processing.org/reference/libraries/sound/SoundFile.html
   titleScreenAudio = new SoundFile(this, "ow_st_menu.mp3");
@@ -33,6 +37,10 @@ void setup() {
   imageMode(CENTER);
    
   owTitleDCLImage = loadImage("ow-title-dlc.png");
+  
+  robo = createFont("Roboto-Regular.ttf", defaultTextSize);
+  textFont(robo);
+  
   
   choosePlayers();
   lavKort();

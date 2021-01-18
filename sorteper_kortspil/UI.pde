@@ -23,9 +23,8 @@ void gameUi(Player spillersTur) { // UI = user interface
   
 
   
-  //--
   
-  // Viser spillerens antal par
+  
   fill(owOrange);
   stroke(owOrange);
   rect(80, 150, 80, 50, 10, 10, 10, 10);
@@ -45,5 +44,5 @@ void gameUi(Player spillersTur) { // UI = user interface
   textAlign(LEFT);
   textSize(16);
   text("Par", 50, 143);
-  //--
+  
 }

@@ -21,8 +21,6 @@ void gameUi(Player spillersTur) { // UI = user interface
   text(spiller.username, 50, 95);
   textAlign(CENTER);
   
-
-  
   
   
   fill(owOrange);

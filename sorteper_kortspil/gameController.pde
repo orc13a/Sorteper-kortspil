@@ -6,8 +6,4 @@ void game() {
   
   Player spiller = alleSpillere.get(playersTurn);
   gameUi(spiller);
-  
-  for () {
-  
-  }
 }

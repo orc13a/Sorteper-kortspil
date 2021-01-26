@@ -1,11 +1,11 @@
-int GearMenuX = width;
-int GearMenuY = height;
-
 void gameUi(Player spillersTur) { // UI = user interface
+  int GearMenuX = screenWidth - 25;
+  int GearMenuY = 25;
+
   //Player spiller = alleSpillere.get(playersTurn);
   Player spiller = spillersTur;
-println(GearMenuX);
-PImage GearMenu;
+  
+  PImage GearMenu;
 
   // Viser hvilkens spillers tur det er
   fill(owOrange);

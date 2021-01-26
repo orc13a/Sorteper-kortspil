@@ -4,12 +4,12 @@ class Card {
   int cardId;
   String cardName;
   String cardColor;
-  String cardImg;
+  PImage cardImg;
   boolean black; // Om kortet er sorteper
   int h = 200;
   int w = 100;
   
-  Card(float newX, float newY, int newCardId, String givenCardName, boolean isBlack, String givenCardColor, String givenCardImg) {
+  Card(float newX, float newY, int newCardId, String givenCardName, boolean isBlack, String givenCardColor, PImage givenCardImg) {
     x = newX;
     y = newY;
     cardId = newCardId;
@@ -19,7 +19,8 @@ class Card {
     black = isBlack;
   }
   
-  void display() {
-    
+  void display(float x_, float y_) {
+    cardImg.resize(200,200);
+    image(cardImg, x_, y_);
   }
 }

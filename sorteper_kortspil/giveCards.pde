@@ -45,20 +45,20 @@ void lavKort() {
   String[] heroes = {"Dva", "Reinhardt", "Winston", "Genji", "Hanzo", "Tracer", "Soldier", "Bastion", "Reaper", "Mercy", "Zenyatte", "Ana"};
   String sorteper = "Doomfist";
   
-  String cardColor = "Blå";
+  String cardColor = "blue";
   for(int i = 0; i < heroes.length; i++) {
     int cardID = i + 1;
-    Card card = new Card(0, 0, cardID, heroes[i], false, cardColor, "none");
+    Card card = new Card(0, 0, cardID, heroes[i], false, cardColor, loadImage("Tracer" + "_" + cardColor + ".png"));
     alleKort.add(card);
   };
   
-  cardColor = "Rød";
+  cardColor = "red";
   for(int i = 0; i < heroes.length; i++) {
     int cardID = (i + 1) * 13;
-    Card card = new Card(0, 0, cardID, heroes[i], false, cardColor, "none");
+    Card card = new Card(0, 0, cardID, heroes[i], false, cardColor, loadImage("Tracer" + "_" + cardColor + ".png"));
     alleKort.add(card);
   };
   
-  Card sorteperCard = new Card(0, 0, 666, sorteper, true, "Black", "none");
+  Card sorteperCard = new Card(0, 0, 666, sorteper, true, "Black", loadImage("Doom.png"));
   alleKort.add(sorteperCard);
 }

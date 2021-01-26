@@ -7,7 +7,7 @@ void game() {
   Player spiller = alleSpillere.get(playersTurn);
   gameUi(spiller);
   
-  if(gameRound == 1) {
-    // Her skal alle spillere have en chance for at ligge par lige efter kort er udgivet
+  for () {
+  
   }
 }

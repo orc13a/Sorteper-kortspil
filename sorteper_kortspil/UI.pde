@@ -1,6 +1,11 @@
+int GearMenuX = width;
+int GearMenuY = height;
+
 void gameUi(Player spillersTur) { // UI = user interface
   //Player spiller = alleSpillere.get(playersTurn);
   Player spiller = spillersTur;
+println(GearMenuX);
+PImage GearMenu;
 
   // Viser hvilkens spillers tur det er
   fill(owOrange);
@@ -42,5 +47,13 @@ void gameUi(Player spillersTur) { // UI = user interface
   textAlign(LEFT);
   textSize(16);
   text("Par", 50, 143);
+  
+  GearMenu = loadImage("GearPng.png");
+  GearMenu.resize(50, 50);
+  image(GearMenu, GearMenuX, GearMenuY);
+  
+}
+
+void menuClick(){
   
 }

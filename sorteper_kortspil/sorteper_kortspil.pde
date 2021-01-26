@@ -17,6 +17,9 @@ int header2 = 45;
 int maxPlayers = 6; // Dette siger hvor mange spillere der kan spille på samme tid. [HARD CODED]
 color owOrange = #F79D1A;
 
+int screenWidth;
+int screenHeight;
+
 boolean titleScreen = true;
 boolean gameStarted = true; // [DEV] skal være false standard
 
@@ -26,7 +29,8 @@ void setup() {
   frameRate(60);
   smooth(8);
   pixelDensity(2);
-
+  screenWidth = width;
+  screenHeight = height;
   // https://processing.org/reference/libraries/sound/SoundFile.html
   titleScreenAudio = new SoundFile(this, "ow_st_menu.mp3");
   titleScreenAudio.play();

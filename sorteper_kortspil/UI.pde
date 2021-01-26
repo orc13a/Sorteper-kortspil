@@ -1,6 +1,6 @@
 void gameUi(Player spillersTur) { // UI = user interface
-  int GearMenuX = screenWidth - 25;
-  int GearMenuY = 25;
+  int GearMenuX = screenWidth - 50;
+  int GearMenuY = 50;
 
   //Player spiller = alleSpillere.get(playersTurn);
   Player spiller = spillersTur;
@@ -52,8 +52,15 @@ void gameUi(Player spillersTur) { // UI = user interface
   GearMenu.resize(50, 50);
   image(GearMenu, GearMenuX, GearMenuY);
   
+  menuClick(GearMenuX, GearMenuY);
 }
 
-void menuClick(){
-  
+void menuClick(int GearMenuX, int GearMenuY){
+  if(mouseY>= GearMenuY - 25 && mouseY<= GearMenuY + 25){
+    if(mouseX>= GearMenuX - 25 && mouseX<= GearMenuX + 25){
+      cursor(HAND);
+    }
+  } else {
+    cursor(ARROW);
+  }
 }

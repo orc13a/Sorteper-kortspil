@@ -2,10 +2,15 @@ void gameUi(Player spillersTur) { // UI = user interface
   int GearMenuX = screenWidth - 50;
   int GearMenuY = 50;
 
-  //Player spiller = alleSpillere.get(playersTurn);
-  Player spiller = spillersTur;
+  Player spiller = spillersTur; // Spiller data for den spillers tur det er
   
   PImage GearMenu;
+
+  GearMenu = loadImage("Gear.png");
+  GearMenu.resize(50, 50);
+  image(GearMenu, GearMenuX, GearMenuY);
+  
+  //menuClick(GearMenuX, GearMenuY);
 
   // Viser hvilkens spillers tur det er
   fill(owOrange);
@@ -26,8 +31,6 @@ void gameUi(Player spillersTur) { // UI = user interface
   text(spiller.username, 50, 95);
   textAlign(CENTER);
   
-  
-  
   fill(owOrange);
   stroke(owOrange);
   rect(80, 150, 80, 50, 10, 10, 10, 10);
@@ -47,20 +50,12 @@ void gameUi(Player spillersTur) { // UI = user interface
   textAlign(LEFT);
   textSize(16);
   text("Par", 50, 143);
-  
-  GearMenu = loadImage("GearPng.png");
-  GearMenu.resize(50, 50);
-  image(GearMenu, GearMenuX, GearMenuY);
-  
-  menuClick(GearMenuX, GearMenuY);
 }
 
-void menuClick(int GearMenuX, int GearMenuY){
-  if(mouseY>= GearMenuY - 25 && mouseY<= GearMenuY + 25){
-    if(mouseX>= GearMenuX - 25 && mouseX<= GearMenuX + 25){
-      cursor(HAND);
-    }
-  } else {
-    cursor(ARROW);
-  }
-}
+//void menuClick(int GearMenuX, int GearMenuY) {
+//  if(mouseY >= GearMenuY - 25 && mouseY <= GearMenuY + 25 && mouseX >= GearMenuX - 25 && mouseX <= GearMenuX + 25) {
+//    cursor(HAND);
+//  } else {
+//    cursor(ARROW);
+//  }
+//}

@@ -20,7 +20,16 @@ class Card {
   }
   
   void display(float x_, float y_) {
+    x = x_;
+    y = y_;
+    
     cardImg.resize(200,200);
-    image(cardImg, x_, y_);
+    image(cardImg, x, y);
+  }
+  
+  void cardSelect() {
+    if (mouseX >= x - 100 && mouseX <= x + 100 && mouseY >= y - 100 && mouseY <= y + 100) {
+      
+    }
   }
 }

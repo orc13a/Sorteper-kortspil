@@ -26,11 +26,14 @@ boolean gameStarted = true; // [DEV] skal være false standard
 void setup() {
   fullScreen(); // Spillet er i fuldskærm
   background(defBgColor[0], defBgColor[1], defBgColor[2]);
-  frameRate(60);
+  frameRate(120);
+  // Disse gør alt mere smooth og mindre pixel
   smooth(8);
   pixelDensity(2);
+  
   screenWidth = width;
   screenHeight = height;
+  
   // https://processing.org/reference/libraries/sound/SoundFile.html
   titleScreenAudio = new SoundFile(this, "ow_st_menu.mp3");
   titleScreenAudio.play();
@@ -50,8 +53,6 @@ void setup() {
   lavKort();
 }
 
-//Button testBtn;
-
 void draw() {
   clear();
   background(defBgColor[0], defBgColor[1], defBgColor[2]);
@@ -67,10 +68,6 @@ void draw() {
     image(owTitleDCLImage, width/2, height/2);
   }
   
-  //testBtn = new Button(100, 100, 100, 50, "Hello World", 169, 0, 0, 18);
-  
-  //testBtn.display();
-  
   // Til at angive navne og spiller tal
   if(playerNamesAndAmoutSet == true && playerNamesAndAmoutIsSet == false) {
     choosePlayers();
@@ -81,13 +78,14 @@ void draw() {
     giveCards();
   }
   
+  // Når navne, antal spiller og kort er givet
   if(gameStarted == true && cardGiven == true) {
     game();
   }
 }
 
 void mousePressed() {
-  //testBtn.pressed();
+  
 }
 
 void keyPressed() {

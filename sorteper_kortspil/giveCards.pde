@@ -10,19 +10,6 @@ int givSpillerKort = 0; // Index i alle spiller arrayen, altså den spiller vi v
 int kortIndex;
 Card kort;
 
-void getCard() {
-  for (int i = 0; i < kortGivet.size(); i++) {
-    Card cardCheck = kortGivet.get(i);
-    if (kort.cardId == cardCheck.cardId) {
-      break;
-    }
-    
-    if (i == (kortGivet.size() - 1) && kort.cardId != cardCheck.cardId) {
-      cardChecking = true;
-    }
-  }
-}
-
 void giveCards() { 
   while(givKort != alleKort.size()) {
     cardChecking = false;

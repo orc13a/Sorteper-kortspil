@@ -41,13 +41,5 @@ void displayPlayerCards(Player spiller) {
     } else {
       kort.display(25 + (f / 2) + (i * f) + (i * q), (height - 150), int(newCardWidth), int(newCardWidth));
     }
-    
-    //if (i == 0) {
-    //  kort.display((50 + (newCardWidth / 2)) - (imageMargin * 2), (height - 150), newCardWidth, newCardWidth);
-    //} else if (i == (spiller.kort.size() - 1)) {
-    //  kort.display((width - ((50 + (newCardWidth / 2)) - (imageMargin * 2))), (height - 150), newCardWidth, newCardWidth);
-    //} else {
-    //  kort.display(((i * newCardWidth) + (50 + (newCardWidth / 2))) - (imageMargin * 2), (height - 150), newCardWidth, newCardWidth);
-    //}
   }
 }

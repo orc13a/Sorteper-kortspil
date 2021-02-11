@@ -1,7 +1,8 @@
 boolean cardGiven = false;
+boolean cardChecking = false;
 ArrayList<Card> alleKort = new ArrayList<Card>();
-//ArrayList<Card> kortGivet = new ArrayList<Card>();
-int[] kortGivet = new int[alleKort.size()];
+ArrayList<Card> kortGivet = new ArrayList<Card>();
+//int[] kortGivet = new int[1];
 
 int givKort = 0;
 int givSpillerKort = 0; // Index i alle spiller arrayen, altså den spiller vi vil give kort til
@@ -9,34 +10,51 @@ int givSpillerKort = 0; // Index i alle spiller arrayen, altså den spiller vi v
 int kortIndex;
 Card kort;
 
-void giveCards() {
-  while(givKort != alleKort.size()) {
-    //int checkKort = 0;
-    Player spiller = alleSpillere.get(givSpillerKort);
-    
-    kortIndex = int(random(0, alleKort.size()));
-    kort = alleKort.get(kortIndex);
-    
-    //if(kortGivet.size() > 0) {
-      if(kortGivet.length > 0) {
-      //while(kort != kortGivet.get(checkKort)) {
-      //  kortIndex = int(random(0, alleKort.size()));
-      //  kort = alleKort.get(kortIndex);
-      //  checkKort++;
-      //}
-      for (int i = 0; i < kortGivet.length; i++) {
-        if (kortGivet[i] == kortIndex) {
-          
-        }
-      }
+void getCard() {
+  for (int i = 0; i < kortGivet.size(); i++) {
+    Card cardCheck = kortGivet.get(i);
+    if (kort.cardId == cardCheck.cardId) {
+      break;
     }
     
+    if (i == (kortGivet.size() - 1) && kort.cardId != cardCheck.cardId) {
+      cardChecking = true;
+    }
+  }
+}
+
+void giveCards() { 
+  while(givKort != alleKort.size()) {
+    cardChecking = false;
+    
+    Player spiller = alleSpillere.get(givSpillerKort);
+    
+    if (kortGivet.size() > 0) {
+      while (cardChecking == false) {
+        kortIndex = int(random(0, alleKort.size()));
+        kort = alleKort.get(kortIndex);
+        
+        for (int i = 0; i < kortGivet.size(); i++) {
+          Card cardCheck = kortGivet.get(i);
+          if (kort.cardId == cardCheck.cardId) {
+            break;
+          }
+          
+          if (i == (kortGivet.size() - 1) && kort.cardId != cardCheck.cardId) {
+            cardChecking = true;
+            break;
+          }
+        }
+      }
+    } else {
+      kortIndex = int(random(0, alleKort.size()));
+      kort = alleKort.get(kortIndex);
+    }
+
     spiller.kort.add(kort);
-    //kortGivet.add(kort);
+    kortGivet.add(kort);
 
     givKort++; // Tæller hvor mange kort er blivet delt ud (25 maks)
-    
-    print(kortIndex + ", ");
     
     if(givSpillerKort == alleSpillere.size() - 1) {
       givSpillerKort = 0;

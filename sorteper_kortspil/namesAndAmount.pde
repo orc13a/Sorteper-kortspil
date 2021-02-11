@@ -3,9 +3,9 @@ boolean playerNamesAndAmoutIsSet = false; // [DEV] skal være false standard
 ArrayList<Player> alleSpillere = new ArrayList<Player>();
 
 // [DEV] vars
-//String[] playerNames = {"Oliver", "Nixi", "Gustav", "Kasper", null, null};
-String[] playerNames = {"Oliver", "Nixi"};
-int players = 2;
+String[] playerNames = {"Oliver", "Nixi", "Gustav", "Kasper", null, null};
+//String[] playerNames = {"Oliver", "Nixi"};
+int players = 4;
 //
 
 void choosePlayers() {

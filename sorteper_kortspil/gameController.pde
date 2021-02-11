@@ -22,18 +22,36 @@ void game() {
 
 // Placere spillerens kort
 void displayPlayerCards(Player spiller) {
-  int cardsDisplayWidth = spiller.kort.size() * 200;
-  int cardsDisplayMargins = (width - cardsDisplayWidth) / 2;
-
+  float newCardWidth = (width / spiller.kort.size());
+  float imageMargin = (newCardWidth / 100) * 16.5; // 16,5 %
+  float f = newCardWidth - (imageMargin * 2);
+  
+  float x = (width - 50) - f; // 67 %
+  float a = f * (spiller.kort.size() - 2);
+  float z = x - a;
+  float q = z / (spiller.kort.size() - 2);
+  println(f);
+  println(x);
+  println(a);
+  println(z);
+  println(q);
   for (int i = 0; i < spiller.kort.size(); i++) {
     Card kort = spiller.kort.get(i);
     
-    if (i == 0) {
-      kort.display(cardsDisplayMargins + 100, height - 150);
-    } else if (i == spiller.kort.size() - 1) {
-      kort.display(cardsDisplayMargins + 100 + (200 * i), height - 150);
+    if(i == 0) {
+      kort.display(25 + (f / 2), (height - 150), int(newCardWidth), int(newCardWidth));
+    } else if (i == (spiller.kort.size() - 1)) {
+      kort.display(width - (25 + (f / 2)), (height - 150), int(newCardWidth), int(newCardWidth));
     } else {
-      kort.display(cardsDisplayMargins + 100 + (200 * i), height - 150);
+      kort.display(25 + (f / 2) + (i * f) + (i * q), (height - 150), int(newCardWidth), int(newCardWidth));
     }
+    
+    //if (i == 0) {
+    //  kort.display((50 + (newCardWidth / 2)) - (imageMargin * 2), (height - 150), newCardWidth, newCardWidth);
+    //} else if (i == (spiller.kort.size() - 1)) {
+    //  kort.display((width - ((50 + (newCardWidth / 2)) - (imageMargin * 2))), (height - 150), newCardWidth, newCardWidth);
+    //} else {
+    //  kort.display(((i * newCardWidth) + (50 + (newCardWidth / 2))) - (imageMargin * 2), (height - 150), newCardWidth, newCardWidth);
+    //}
   }
 }

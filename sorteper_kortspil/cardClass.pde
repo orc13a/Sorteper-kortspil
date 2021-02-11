@@ -19,11 +19,11 @@ class Card {
     black = isBlack;
   }
   
-  void display(float x_, float y_) {
+  void display(float x_, float y_, int imgW_, int imgH_) {
     x = x_;
     y = y_;
     
-    cardImg.resize(200,200);
+    cardImg.resize(imgW_, imgH_);
     image(cardImg, x, y);
   }
   

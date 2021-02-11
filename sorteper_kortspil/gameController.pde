@@ -35,11 +35,11 @@ void displayPlayerCards(Player spiller) {
     Card kort = spiller.kort.get(i);
     
     if(i == 0) {
-      kort.display(25 + (f / 2), (height - 150), int(newCardWidth), int(newCardWidth));
+      kort.display(25 + (f / 2), (height - 150), int(newCardWidth), int(newCardWidth), f);
     } else if (i == (spiller.kort.size() - 1)) {
-      kort.display(width - (25 + (f / 2)), (height - 150), int(newCardWidth), int(newCardWidth));
+      kort.display(width - (25 + (f / 2)), (height - 150), int(newCardWidth), int(newCardWidth), f);
     } else {
-      kort.display(25 + (f / 2) + (i * f) + (i * q), (height - 150), int(newCardWidth), int(newCardWidth));
+      kort.display(25 + (f / 2) + (i * f) + (i * q), (height - 150), int(newCardWidth), int(newCardWidth), f);
     }
   }
 }

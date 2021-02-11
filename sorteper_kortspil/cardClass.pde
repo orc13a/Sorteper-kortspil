@@ -19,9 +19,16 @@ class Card {
     black = isBlack;
   }
   
-  void display(float x_, float y_, int imgW_, int imgH_) {
+  void display(float x_, float y_, int imgW_, int imgH_, float realW) {
     x = x_;
     y = y_;
+    
+    if (mouseX >= x - (realW / 2) && mouseX <= x + (realW / 2) && mouseY >= y - (imgH_ / 2) && mouseY <= y + (imgH_ / 2)) {
+      y = height - 175;
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
     
     cardImg.resize(imgW_, imgH_);
     image(cardImg, x, y);

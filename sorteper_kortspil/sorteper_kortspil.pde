@@ -26,7 +26,7 @@ boolean gameStarted = true; // [DEV] skal være false standard
 void setup() {
   fullScreen(); // Spillet er i fuldskærm
   background(defBgColor[0], defBgColor[1], defBgColor[2]);
-  frameRate(120);
+  frameRate(60);
   // Disse gør alt mere smooth og mindre pixel
   smooth(8);
   pixelDensity(2);

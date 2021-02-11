@@ -50,4 +50,23 @@ Vores design skal være meget magen til Overwatch’s stil, dvs. baggrund, font 
 Dette er et skærm billede af hvordan det kommer til at se ud, når spillet er i gang. Kasper, er den spiller som skal trække fra en af de andre nu. Altså det er hans tur.
 De 3 ikoner i midten er de andre  spillere, Kasper kan vælge en af dem og efter kommer han til at kunne vælge selv hvilken en af de kort han vil trække.
 
-http://url/to/Kortspil1.png
+Img1
+
+Img2
+
+Vi ser det samme som før, men nu har Kasper trykket på tandhjulet oppe i højre hjørne.
+
+#### 4.Teknisk beskrivelse + et par diagrammer
+Vi har gjort sådan at kortene bliver displayet vha. en loop funktion 
+
+#### 5.Klasse-diagram & flowchart
+Klasse-diagram
+
+Img3
+
+Flowchart
+
+Img4
+
+
+

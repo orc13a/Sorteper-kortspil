@@ -30,11 +30,7 @@ void displayPlayerCards(Player spiller) {
   float a = f * (spiller.kort.size() - 2);
   float z = x - a;
   float q = z / (spiller.kort.size() - 2);
-  println(f);
-  println(x);
-  println(a);
-  println(z);
-  println(q);
+
   for (int i = 0; i < spiller.kort.size(); i++) {
     Card kort = spiller.kort.get(i);
     

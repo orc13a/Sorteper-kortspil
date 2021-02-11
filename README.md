@@ -50,7 +50,7 @@ Vores design skal være meget magen til Overwatch’s stil, dvs. baggrund, font 
 Dette er et skærm billede af hvordan det kommer til at se ud, når spillet er i gang. Kasper, er den spiller som skal trække fra en af de andre nu. Altså det er hans tur.
 De 3 ikoner i midten er de andre  spillere, Kasper kan vælge en af dem og efter kommer han til at kunne vælge selv hvilken en af de kort han vil trække.
 
-Img1
+[in game, spiller vælger hvem de skal trække fra] https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/Kortspil1.png
 
 Img2
 

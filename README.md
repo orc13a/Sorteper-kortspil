@@ -52,7 +52,7 @@ De 3 ikoner i midten er de andre  spillere, Kasper kan vælge en af dem og efter
 
 ![in game, spiller vælger hvem de skal trække fra](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/Kortspil1.png "Img1")
 
-Img2
+![Billede af in game menu](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/Kortspil2.png "img2")
 
 Vi ser det samme som før, men nu har Kasper trykket på tandhjulet oppe i højre hjørne.
 
@@ -62,11 +62,11 @@ Vi har gjort sådan at kortene bliver displayet vha. en loop funktion
 #### 5.Klasse-diagram & flowchart
 Klasse-diagram
 
-Img3
+![Billede af klasse-diagram](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/Kortspil3.png "img3") 
 
 Flowchart
 
-Img4
+![Billede af Flowchart](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/Kortspil4.png "img4")
 
 
 

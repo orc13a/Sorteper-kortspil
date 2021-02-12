@@ -1,3 +1,5 @@
+// https://bingur.github.io/sounds-of-overwatch/pages/misc_pages/music.html
+
 // Importere liberies vi skal bruge
 import processing.sound.*;
 // Laver en varibale til title screen musik
@@ -57,6 +59,11 @@ void draw() {
   clear();
   background(defBgColor[0], defBgColor[1], defBgColor[2]);
   
+  // Når navne, antal spiller og kort er givet
+  if(gameStarted == true && cardGiven == true) {
+    game();
+  }
+  
   if(titleScreen == true) {
     textSize(header1);
     textAlign(CENTER); // Sætter skriftens x- og y-koordinat til midten af teksten
@@ -76,11 +83,6 @@ void draw() {
   // Giver kortene ud og først efter kan spillet starte
   if(playerNamesAndAmoutIsSet == true && cardGiven == false) {
     giveCards();
-  }
-  
-  // Når navne, antal spiller og kort er givet
-  if(gameStarted == true && cardGiven == true) {
-    game();
   }
 }
 

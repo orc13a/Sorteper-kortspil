@@ -4,6 +4,7 @@
 import processing.sound.*;
 // Laver en varibale til title screen musik
 SoundFile titleScreenAudio;
+SoundFile gameMusic;
 
 // Fonts
 PFont robo;
@@ -21,6 +22,8 @@ color owOrange = #F79D1A;
 
 int screenWidth;
 int screenHeight;
+
+boolean startGameAudio = true;
 
 boolean titleScreen = true;
 boolean gameStarted = true; // [DEV] skal være false standard
@@ -41,6 +44,8 @@ void setup() {
   titleScreenAudio.play();
   titleScreenAudio.loop();
   titleScreenAudio.amp(0.2); // volume (0.0 - 1.0) [float]
+  
+  gameMusic = new SoundFile(this, "game-musik.mp3");
   
   rectMode(CENTER);
   imageMode(CENTER);

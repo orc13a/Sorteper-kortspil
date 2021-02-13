@@ -24,7 +24,7 @@ class Card {
     y = y_;
     
     if (mouseX >= x - (realW / 2) && mouseX <= x + (realW / 2) && mouseY >= y - (imgH_ / 2) && mouseY <= y + (imgH_ / 2)) {
-      y = height - 175;
+      y = height - 160;
       cursor(HAND);
     } else {
       cursor(ARROW);

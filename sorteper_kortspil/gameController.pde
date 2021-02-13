@@ -10,6 +10,7 @@ PImage selectedCheck;
 float newCardWidth;
 float imageMargin;
 float f;
+float e;
 float x;
 float a;
 float z;
@@ -17,7 +18,13 @@ float q;
 
 // Main funktion som styrer hele selve spillet
 void game() {
-  titleScreenAudio.stop(); // Stopper musikken fra start skærmen
+  if(startGameAudio == true) {
+    titleScreenAudio.stop(); // Stopper musikken fra start skærmen
+    gameMusic.play(); // Starter musikken til spillet
+    gameMusic.amp(0.5);
+    
+    startGameAudio = false;
+  }
 
   Player spiller = alleSpillere.get(playersTurn); // Henter data for den spillers tur det er
   
@@ -27,7 +34,9 @@ void game() {
     imageMargin = (newCardWidth / 100) * 16.5; // 16,5 %
     f = newCardWidth - (imageMargin * 2);
     
-    x = (width - 50) - f; // 67 %
+    e = 25 + imageMargin + f;
+    x = width - (e * 2);
+    //x = (width - 50) - f; // 67 %
     a = f * (spiller.kort.size() - 2);
     z = x - a;
     q = z / (spiller.kort.size() - 2);

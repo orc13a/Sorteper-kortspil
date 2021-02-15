@@ -8,6 +8,8 @@ class Card {
   boolean black; // Om kortet er sorteper
   int h = 200;
   int w = 100;
+  float cardRealWidth;
+  boolean cardSelected = false;
   
   Card(float newX, float newY, int newCardId, String givenCardName, boolean isBlack, String givenCardColor, PImage givenCardImg) {
     x = newX;
@@ -22,6 +24,9 @@ class Card {
   void display(float x_, float y_, int imgW_, int imgH_, float realW) {
     x = x_;
     y = y_;
+    h = imgH_;
+    w = imgW_;
+    cardRealWidth = realW;
     
     if (mouseX >= x - (realW / 2) && mouseX <= x + (realW / 2) && mouseY >= y - (imgH_ / 2) && mouseY <= y + (imgH_ / 2)) {
       y = height - 160;
@@ -35,8 +40,17 @@ class Card {
   }
   
   void cardSelect() {
-    if (mouseX >= x - 100 && mouseX <= x + 100 && mouseY >= y - 100 && mouseY <= y + 100) {
-      
+    if(cardId != 666) {
+      if (mouseX >= x - (cardRealWidth / 2) && mouseX <= x + (cardRealWidth / 2) && mouseY >= y - (h / 2) && mouseY <= y + (h / 2)) {
+        if(cardSelected == false) {
+          playersHandCardSelected.add(this);
+          //lastSelectedCard++;
+          cardSelected = true;
+        }
+        
+        //PImage selected = loadImage("selectedCheck.png");
+        //image(selected, x, (y + h/2 + 25));
+      }
     }
   }
 }

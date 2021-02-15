@@ -51,6 +51,7 @@ void setup() {
   imageMode(CENTER);
    
   owTitleDCLImage = loadImage("ow-title-dlc.png");
+  selectedCheck = loadImage("selectedCheck.png");
   
   robo = createFont("Roboto-Regular.ttf", defaultTextSize);
   textFont(robo);
@@ -89,10 +90,6 @@ void draw() {
   if(playerNamesAndAmoutIsSet == true && cardGiven == false) {
     giveCards();
   }
-}
-
-void mousePressed() {
-  
 }
 
 void keyPressed() {

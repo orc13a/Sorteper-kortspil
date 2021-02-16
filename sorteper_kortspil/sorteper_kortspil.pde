@@ -9,6 +9,8 @@ SoundFile gameMusic;
 // Fonts
 PFont robo;
 PFont roboMedium;
+PFont owFont;
+PFont owFontItalic;
 
 // En class som er en del af processing
 // Laver billede variabel
@@ -58,6 +60,8 @@ void setup() {
   
   robo = createFont("Roboto-Regular.ttf", defaultTextSize);
   roboMedium = createFont("Roboto-Medium.ttf", defaultTextSize);
+  owFont = createFont("big_noodle_titling.ttf", defaultTextSize);
+  owFontItalic = createFont("big_noodle_titling_oblique.ttf", defaultTextSize);
   textFont(robo);
   
   
@@ -75,14 +79,17 @@ void draw() {
   }
   
   if(titleScreen == true) {
+    textFont(owFont);
     textSize(header1);
     textAlign(CENTER); // Sætter skriftens x- og y-koordinat til midten af teksten
     fill(0);
     text("Sorteper", width/2, 250);
-    textSize(20);
+    textFont(owFontItalic);
+    textSize(24);
     text("Tryk på en tast, for at fortsætte",  width/2, height-100);
     textSize(defaultTextSize); // ændre skriften tilbage
     image(owTitleDCLImage, width/2, height/2);
+    textFont(robo);
   }
   
   // Til at angive navne og spiller tal

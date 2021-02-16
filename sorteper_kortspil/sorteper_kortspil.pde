@@ -13,6 +13,7 @@ PFont roboMedium;
 // En class som er en del af processing
 // Laver billede variabel
 PImage owTitleDCLImage;
+PImage gameBgImage;
 
 int[] defBgColor = {255, 255, 255};
 int defaultTextSize = 12;
@@ -52,7 +53,8 @@ void setup() {
   imageMode(CENTER);
    
   owTitleDCLImage = loadImage("ow-title-dlc.png");
-  selectedCheck = loadImage("selectedCheck.png");
+  gameBgImage = loadImage("game-bg-image.png");
+  
   
   robo = createFont("Roboto-Regular.ttf", defaultTextSize);
   roboMedium = createFont("Roboto-Medium.ttf", defaultTextSize);

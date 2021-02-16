@@ -12,6 +12,10 @@ boolean nextPlayerFreeze = false;
 
 // Main funktion som styrer hele selve spillet
 void game() {
+  // Background image
+  image(gameBgImage, width / 2, height / 2);
+  gameBgImage.resize(width, height);
+  
   // Music
   if(startGameAudio == true) {
     titleScreenAudio.stop(); // Stopper musikken fra start skærmen
@@ -29,6 +33,25 @@ void game() {
     displayPlayerCards(spiller); // Viser spillerens kort
   }
   
+  if(nextPlayerFreeze == true) {
+    fill(255);
+    stroke(owOrange);
+    strokeWeight(2.5);
+    rect(width / 2, height / 2, width / 5, 150, 10, 10, 10, 10);
+    
+    fill(0);
+    textSize(18);
+    textAlign(CENTER);
+    text("Har næste spiller fået enheden?", width / 2, height / 2 - 20);
+    
+    fill(owOrange);
+    noStroke();
+    rect(width / 2, height / 2 + 40, 50, 38, 10, 10, 10, 10);
+    textSize(16);
+    fill(255);
+    text("Ja", width / 2, height / 2 + 45);
+  }
+  
   gameUi(spiller); // Tegner UI
 }
 
@@ -44,5 +67,13 @@ void mousePressed() {
     handPar(spiller);
   }
   
-  nextPlayer(width - 125, height / 2, 100, 38); // data fra UI, næste spiller knappen
+  if(nextPlayerFreeze == true) {
+    if(mouseX >= width / 2 - (50 / 2) && mouseX <= width / 2 + (50 / 2) && mouseY >= height / 2 + 40 - (38 / 2) && mouseY <= height / 2 + 40 + (38 / 2)) {
+      nextPlayerFreeze = false;
+    }
+  }
+  
+  if(nextPlayerFreeze == false) {
+    nextPlayer(width - 125, height / 2, 100, 38); // data fra UI, næste spiller knappen
+  }
 }

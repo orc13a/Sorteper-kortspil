@@ -43,13 +43,10 @@ class Card {
     if(cardId != 666) {
       if (mouseX >= x - (cardRealWidth / 2) && mouseX <= x + (cardRealWidth / 2) && mouseY >= y - (h / 2) && mouseY <= y + (h / 2)) {
         if(cardSelected == false) {
-          playersHandCardSelected.add(this);
-          //lastSelectedCard++;
           cardSelected = true;
+          
+          playersHandCardSelected.add(this);
         }
-        
-        //PImage selected = loadImage("selectedCheck.png");
-        //image(selected, x, (y + h/2 + 25));
       }
     }
   }

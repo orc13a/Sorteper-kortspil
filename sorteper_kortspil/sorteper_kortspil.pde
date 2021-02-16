@@ -8,6 +8,7 @@ SoundFile gameMusic;
 
 // Fonts
 PFont robo;
+PFont roboMedium;
 
 // En class som er en del af processing
 // Laver billede variabel
@@ -54,6 +55,7 @@ void setup() {
   selectedCheck = loadImage("selectedCheck.png");
   
   robo = createFont("Roboto-Regular.ttf", defaultTextSize);
+  roboMedium = createFont("Roboto-Medium.ttf", defaultTextSize);
   textFont(robo);
   
   

@@ -5,6 +5,16 @@ void gameUi(Player spillersTur) { // UI = user interface
   Player spiller = spillersTur; // Spiller data for den spillers tur det er
   
   PImage GearMenu;
+  
+  // next player
+  fill(owOrange);
+  rect(width - 100, height / 2, 100, 38, 10, 10, 10, 10);
+  fill(255);
+  textAlign(CENTER);
+  textFont(roboMedium);
+  textSize(20);
+  text("Færdig", width - 100, (height / 2) + 7);
+  textFont(robo);
 
   GearMenu = loadImage("Gear.png");
   GearMenu.resize(50, 50);
@@ -52,6 +62,18 @@ void gameUi(Player spillersTur) { // UI = user interface
   text("Par", 50, 143);
 }
 
+void nextPlayer(float x, float y, int btnW, int btnH) {
+  if(mouseX >= x - (btnW / 2) && mouseX <= x + (btnW / 2) && mouseY >= y - (btnH / 2) && mouseY <= y + (btnH / 2)) {
+    if (playersTurn == (players - 1)) {
+      playersTurn = 0;
+      gameRound++;
+    } else {
+      playersTurn++;
+    }
+    
+    nextPlayerFreeze = true;
+  }
+}
 //void menuClick(int GearMenuX, int GearMenuY) {
 //  if(mouseY >= GearMenuY - 25 && mouseY <= GearMenuY + 25 && mouseX >= GearMenuX - 25 && mouseX <= GearMenuX + 25) {
 //    cursor(HAND);

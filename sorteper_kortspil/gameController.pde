@@ -8,6 +8,8 @@ PImage selectedCheck;
 
 int lastSelectedCard = 0;
 
+boolean nextPlayerFreeze = false;
+
 // Main funktion som styrer hele selve spillet
 void game() {
   // Music
@@ -22,8 +24,10 @@ void game() {
 
   Player spiller = alleSpillere.get(playersTurn); // Henter data for den spillers tur det er
   
-  cardDisplayCal(spiller);
-  displayPlayerCards(spiller); // Viser spillerens kort
+  if(nextPlayerFreeze == false) {
+    cardDisplayCal(spiller);
+    displayPlayerCards(spiller); // Viser spillerens kort
+  }
   
   gameUi(spiller); // Tegner UI
 }
@@ -39,4 +43,6 @@ void mousePressed() {
   if(gameRound == 1) {
     handPar(spiller);
   }
+  
+  nextPlayer(width - 125, height / 2, 100, 38); // data fra UI, næste spiller knappen
 }

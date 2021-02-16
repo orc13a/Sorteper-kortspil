@@ -9,12 +9,12 @@ void gameUi(Player spillersTur) { // UI = user interface
   // next player
   if(nextPlayerFreeze == false) {
     fill(owOrange);
-    rect(width - 100, height / 2, 100, 38, 10, 10, 10, 10);
+    rect(width - 100, height - (height / 3), 100, 38, 10, 10, 10, 10);
     fill(255);
     textAlign(CENTER);
     textFont(roboMedium);
     textSize(20);
-    text("Færdig", width - 100, (height / 2) + 7);
+    text("Færdig", width - 100, (height - (height / 3)) + 7);
     textFont(robo);
   }
 

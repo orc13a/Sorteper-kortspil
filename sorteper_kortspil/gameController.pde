@@ -42,7 +42,7 @@ void game() {
     fill(0);
     textSize(18);
     textAlign(CENTER);
-    text("Har næste spiller fået enheden?", width / 2, height / 2 - 20);
+    text("Har " + spiller.username + " fået enheden?", width / 2, height / 2 - 20);
     
     fill(owOrange);
     noStroke();
@@ -50,6 +50,10 @@ void game() {
     textSize(16);
     fill(255);
     text("Ja", width / 2, height / 2 + 45);
+  }
+  
+  if(nextPlayerFreeze == false && gameRound > 1) {
+    displayOpponentHand();
   }
   
   gameUi(spiller); // Tegner UI
@@ -74,6 +78,6 @@ void mousePressed() {
   }
   
   if(nextPlayerFreeze == false) {
-    nextPlayer(width - 125, height / 2, 100, 38); // data fra UI, næste spiller knappen
+    nextPlayer(width - 125, height - (height / 3), 100, 38); // data fra UI, næste spiller knappen
   }
 }

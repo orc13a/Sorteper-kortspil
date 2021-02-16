@@ -14,16 +14,6 @@ void cardDisplayCal(Player spiller) {
     if(newCardWidth > 200) {
       newCardWidth = 200;
     }
-    /*imageMargin = (newCardWidth / 100) * 16.5; // 16,5 %
-    f = newCardWidth - (imageMargin * 2);
-    
-    e = 25 + imageMargin + f;
-    x = width - (e * 2);
-    //x = (width - 50) - f; // 67 %
-    a = f * (spiller.kort.size() - 2);
-    z = x - a;
-    q = z / (spiller.kort.size() - 2);
-    */
     imageMargin = (newCardWidth / 100) * 16.5; // 16,5 %
     f = newCardWidth - (imageMargin * 2);
     e = imageMargin * (spiller.kort.size() - 1);
@@ -48,6 +38,38 @@ void displayPlayerCards(Player spiller) {
       kort.display(x + (f / 2), height - 150, int(newCardWidth), int(newCardWidth), f);
     } else {
       kort.display((x + (f / 2)) + ((f + imageMargin) * i), height - 150, int(newCardWidth), int(newCardWidth), f);
+    }
+    
+    if(kort.cardSelected == true) {
+      noFill();
+      stroke(owOrange);
+      strokeWeight(4);
+      rect(kort.x - 1, kort.y, kort.cardRealWidth + 4, kort.h, 10, 10, 10, 10);
+    }
+  }
+}
+
+void displayOpponentHand() {
+  Player spiller = alleSpillere.get(playersTurn + 1);
+  
+  float newCardWidthOpp = (width / spiller.kort.size());
+  if(newCardWidthOpp > 200) {
+    newCardWidthOpp = 200;
+  }
+  float imageMarginOpp = (newCardWidthOpp / 100) * 16.5; // 16,5 %
+  float fOpp = newCardWidthOpp - (imageMarginOpp * 2);
+  float eOpp = imageMarginOpp * (spiller.kort.size() - 1);
+  float aOpp = fOpp * spiller.kort.size();
+  float zOpp = aOpp + eOpp;
+  float xOpp = (width - zOpp) / 2;
+  
+  for (int i = 0; i < spiller.kort.size(); i++) {
+    Card kort = spiller.kort.get(i);
+    
+    if(i == 0) {
+      kort.display(xOpp + (fOpp / 2), height / 2, int(newCardWidthOpp), int(newCardWidthOpp), fOpp);
+    } else {
+      kort.display((xOpp + (fOpp / 2)) + ((fOpp + imageMarginOpp) * i), height / 2, int(newCardWidthOpp), int(newCardWidthOpp), fOpp);
     }
     
     if(kort.cardSelected == true) {

@@ -15,6 +15,7 @@ PFont owFontItalic;
 // En class som er en del af processing
 // Laver billede variabel
 PImage owTitleDCLImage;
+PImage titleBgImage;
 PImage gameBgImage;
 
 int[] defBgColor = {255, 255, 255};
@@ -55,6 +56,7 @@ void setup() {
   imageMode(CENTER);
    
   owTitleDCLImage = loadImage("ow-title-dlc.png");
+  //titleBgImage = loadImage("titlescreen-bg.jpg");
   gameBgImage = loadImage("game-bg-image.png");
   
   
@@ -79,6 +81,9 @@ void draw() {
   }
   
   if(titleScreen == true) {
+    //image(titleBgImage, width / 2, height / 2);
+    //titleBgImage.resize(width, height);
+    
     textFont(owFont);
     textSize(header1);
     textAlign(CENTER); // Sætter skriftens x- og y-koordinat til midten af teksten

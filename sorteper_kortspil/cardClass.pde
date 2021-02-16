@@ -29,7 +29,7 @@ class Card {
     cardRealWidth = realW;
     
     if (mouseX >= x - (realW / 2) && mouseX <= x + (realW / 2) && mouseY >= y - (imgH_ / 2) && mouseY <= y + (imgH_ / 2)) {
-      y = height - 160;
+      y = y - 10;
       cursor(HAND);
     } else {
       cursor(ARROW);

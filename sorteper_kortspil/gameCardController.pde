@@ -44,25 +44,19 @@ void displayPlayerCards(Player spiller) {
   for (int i = 0; i < spiller.kort.size(); i++) {
     Card kort = spiller.kort.get(i);
     
-    //kort.display(25 + (f / 2) + (i * f) + (i * q), (height - 150), int(newCardWidth), int(newCardWidth), f);
     if(i == 0) {
-      kort.display(x + imageMargin + (f / 2), height - 150, int(newCardWidth), int(newCardWidth), f);
+      kort.display(x + (f / 2), height - 150, int(newCardWidth), int(newCardWidth), f);
     } else {
-      kort.display((x + imageMargin + (f / 2)) + ((f + imageMargin) * i), height - 150, int(newCardWidth), int(newCardWidth), f);
+      kort.display((x + (f / 2)) + ((f + imageMargin) * i), height - 150, int(newCardWidth), int(newCardWidth), f);
     }
     
     if(kort.cardSelected == true) {
       noFill();
       stroke(owOrange);
-      rect(kort.x, kort.y, kort.cardRealWidth, kort.h, 10, 10, 10, 10);
+      strokeWeight(4);
+      rect(kort.x - 1, kort.y, kort.cardRealWidth + 4, kort.h, 10, 10, 10, 10);
     }
   }
-  
-  //Card StartCard = spiller.kort.get(0);
-  //Card EndCard = spiller.kort.get(spiller.kort.size() - 1);
-  
-  //StartCard.display(25 + (f / 2), (height - 150), int(newCardWidth), int(newCardWidth), f);
-  //EndCard.display(width - (25 + (f / 2)), (height - 150), int(newCardWidth), int(newCardWidth), f);
 }
 
 void handPar(Player spiller) {

@@ -10,6 +10,10 @@ class Card {
   int w = 100;
   float cardRealWidth;
   boolean cardSelected = false;
+  float oppX;
+  float oppY;
+  float oppCardWidth;
+  int oppCardHeigth;
   
   Card(float newX, float newY, int newCardId, String givenCardName, boolean isBlack, String givenCardColor, PImage givenCardImg) {
     x = newX;
@@ -51,7 +55,12 @@ class Card {
     }
   }
   
-  void opponetDisplay(float oppX, float oppY, float oppCardWidth, int oppCardHeigth) {
+  void opponetDisplay(float oppX_, float oppY_, float oppCardWidth_, int oppCardHeigth_) {
+    oppX = oppX_;
+    oppY = oppY_;
+    oppCardWidth = oppCardWidth_;
+    oppCardHeigth = oppCardHeigth_;
+    
     if (mouseX >= oppX - (oppCardWidth / 2) && mouseX <= oppX + (oppCardWidth / 2) && mouseY >= oppY - (oppCardHeigth / 2) && mouseY <= oppY + (oppCardHeigth / 2)) {
       oppY = oppY - 10;
       cursor(HAND);
@@ -68,9 +77,11 @@ class Card {
     owCardLogo.resize(int(oppCardWidth) - 50, int(oppCardWidth) - 50);
   }
   
-  void opponentCardSelected(float oppX, float oppY, float oppCardWidth, int oppCardHeigth) {
+  void opponentCardSelected(Player spiller, int oppPlayer) {
     if(mouseX >= oppX - (oppCardWidth / 2) && mouseX <= oppX + (oppCardWidth / 2) && mouseY >= oppY - (oppCardHeigth / 2) && mouseY <= oppY + (oppCardHeigth / 2)) {
-      
+      spiller.kort.add(this);
+      Player oppPlayerSwitch = alleSpillere.get(oppPlayer);
+      oppPlayerSwitch.kort.remove(this);
     }
   }
 }

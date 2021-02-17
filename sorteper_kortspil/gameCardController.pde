@@ -40,7 +40,7 @@ void displayPlayerCards(Player spiller) {
       kort.display((x + (f / 2)) + ((f + imageMargin) * i), height - 150, int(newCardWidth), int(newCardWidth), f);
     }
     
-    if(kort.cardSelected == true && gameRound == 1) {
+    if(kort.cardSelected == true && nextPlayerFreeze == false) {
       noFill();
       stroke(owOrange);
       strokeWeight(4);

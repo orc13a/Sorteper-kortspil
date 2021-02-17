@@ -50,4 +50,27 @@ class Card {
       }
     }
   }
+  
+  void opponetDisplay(float oppX, float oppY, float oppCardWidth, int oppCardHeigth) {
+    if (mouseX >= oppX - (oppCardWidth / 2) && mouseX <= oppX + (oppCardWidth / 2) && mouseY >= oppY - (oppCardHeigth / 2) && mouseY <= oppY + (oppCardHeigth / 2)) {
+      oppY = oppY - 10;
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
+    
+    fill(255);
+    stroke(0);
+    strokeWeight(2.5);
+    rect(oppX, oppY, oppCardWidth, oppCardHeigth, 10, 10, 10, 10);
+    
+    image(owCardLogo, oppX, oppY);
+    owCardLogo.resize(int(oppCardWidth) - 50, int(oppCardWidth) - 50);
+  }
+  
+  void opponentCardSelected(float oppX, float oppY, float oppCardWidth, int oppCardHeigth) {
+    if(mouseX >= oppX - (oppCardWidth / 2) && mouseX <= oppX + (oppCardWidth / 2) && mouseY >= oppY - (oppCardHeigth / 2) && mouseY <= oppY + (oppCardHeigth / 2)) {
+      
+    }
+  }
 }

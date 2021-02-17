@@ -8,6 +8,7 @@ void gameUi(Player spillersTur) { // UI = user interface
   
   // next player
   if(nextPlayerFreeze == false) {
+    noStroke();
     fill(owOrange);
     rect(width - 100, height - (height / 3), 100, 38, 10, 10, 10, 10);
     fill(255);

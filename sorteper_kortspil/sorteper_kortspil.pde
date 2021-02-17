@@ -17,6 +17,7 @@ PFont owFontItalic;
 PImage owTitleDCLImage;
 PImage titleBgImage;
 PImage gameBgImage;
+PImage owCardLogo;
 
 int[] defBgColor = {255, 255, 255};
 int defaultTextSize = 12;
@@ -58,6 +59,7 @@ void setup() {
   owTitleDCLImage = loadImage("ow-title-dlc.png");
   //titleBgImage = loadImage("titlescreen-bg.jpg");
   gameBgImage = loadImage("game-bg-image.png");
+  owCardLogo = loadImage("ow-card-logo.png");
   
   
   robo = createFont("Roboto-Regular.ttf", defaultTextSize);

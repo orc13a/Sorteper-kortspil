@@ -40,7 +40,7 @@ void displayPlayerCards(Player spiller) {
       kort.display((x + (f / 2)) + ((f + imageMargin) * i), height - 150, int(newCardWidth), int(newCardWidth), f);
     }
     
-    if(kort.cardSelected == true) {
+    if(kort.cardSelected == true && gameRound == 1) {
       noFill();
       stroke(owOrange);
       strokeWeight(4);
@@ -72,17 +72,22 @@ void displayOpponentHand() {
   for (int i = 0; i < spiller.kort.size(); i++) {
     Card kort = spiller.kort.get(i);
     
-    if(i == 0) {
+    /*if(i == 0) {
       kort.display(xOpp + (fOpp / 2), height / 2, int(newCardWidthOpp), int(newCardWidthOpp), fOpp);
     } else {
       kort.display((xOpp + (fOpp / 2)) + ((fOpp + imageMarginOpp) * i), height / 2, int(newCardWidthOpp), int(newCardWidthOpp), fOpp);
     }
     
-    if(kort.cardSelected == true) {
-      noFill();
-      stroke(owOrange);
-      strokeWeight(4);
-      rect(kort.x - 1, kort.y, kort.cardRealWidth + 4, kort.h, 10, 10, 10, 10);
+    if(i == 0) {
+      rect(xOpp + (fOpp / 2), height / 2, fOpp, int(newCardWidthOpp), 10, 10, 10, 10);
+    } else {
+      rect((xOpp + (fOpp / 2)) + ((fOpp + imageMarginOpp) * i), height / 2, fOpp, int(newCardWidthOpp), 10, 10, 10, 10);
+    }*/
+    
+    if(i == 0) {
+      kort.opponetDisplay(xOpp + (fOpp / 2), height / 2, fOpp, int(newCardWidthOpp));
+    } else {
+      kort.opponetDisplay((xOpp + (fOpp / 2)) + ((fOpp + imageMarginOpp) * i), height / 2, fOpp, int(newCardWidthOpp));
     }
   }
 }

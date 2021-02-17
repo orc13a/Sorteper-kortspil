@@ -50,7 +50,13 @@ void displayPlayerCards(Player spiller) {
 }
 
 void displayOpponentHand() {
-  Player spiller = alleSpillere.get(playersTurn + 1);
+  Player spiller;
+  
+  if(playersTurn == (players - 1)) {
+    spiller = alleSpillere.get(0);
+  } else {
+    spiller = alleSpillere.get(playersTurn + 1);
+  }
   
   float newCardWidthOpp = (width / spiller.kort.size());
   if(newCardWidthOpp > 200) {

@@ -67,28 +67,11 @@ void mousePressed() {
     spiller.kort.get(i).cardSelect();
   }
   
-  /*if(gameRound == 1 && nextPlayerFreeze == false) {
-    handPar(spiller);
-  } else {
-    int oppPlayer;
-    if(playersTurn == (players - 1)) {
-      oppPlayer = 0;
-    } else {
-      oppPlayer = playersTurn + 1;
-    }
-
-    Player oppPlayerObj = alleSpillere.get(oppPlayer);
-    for (int i = 0; i < oppPlayerObj.kort.size(); i++) {
-      //spiller.kort.get(i).cardSelect();
-      Card kort = oppPlayerObj.kort.get(i);
-      kort.opponentCardSelected(spiller, oppPlayer);
-    }
-  }*/
-  
   if(nextPlayerFreeze == false) {
     handPar(spiller);
     if(gameRound > 1 ) {
       int oppPlayer;
+      
       if(playersTurn == (players - 1)) {
         oppPlayer = 0;
       } else {

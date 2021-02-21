@@ -1,6 +1,12 @@
-boolean gameStarted = false;
+boolean gameStarted = true; // [DEV] "false" by default
 boolean displayTitleScreen = false;
 boolean runPlayersSetup = false;
+
+// The default font size
+int defFontSize = 12;
+
+// Images
+PImage gameBackgroundImage; // background image for when the game is started
 
 void setup() {
   fullScreen(); // Program window size
@@ -11,8 +17,11 @@ void setup() {
   textAlign(CENTER);
   imageMode(CENTER);
   
-  text("Loading...", (width / 2), (height / 2)); // To tell the user that the game is loading
+  // To tell the user that the game is loading
+  text("Loading...", (width / 2), (height / 2));
   
+  // Load images
+  gameBackgroundImage = loadImage("game-bg-image.png");
 }
 
 void draw() {
@@ -30,6 +39,6 @@ void draw() {
   
   // Checks if everything is set and game is ready to begin
   if (gameStarted == true && runPlayersSetup == false) {
-    // ---> Kør game funktion
+    game(); // game_controller
   }
 }

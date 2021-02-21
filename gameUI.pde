@@ -1,3 +1,3 @@
-void gameUI() {
+void gameUI(Player player) {
   
 }

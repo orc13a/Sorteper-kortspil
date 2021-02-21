@@ -29,7 +29,7 @@ class Card {
   // -- Methods
   
   // Display methode for the font of the card
-  void fontDisplay(float x_, float y_, int imageW_, int imageH_, int w_) {
+  void frontDisplay(float x_, float y_, int imageW_, int imageH_, int w_) {
     x = x_;
     y = y_;
     imageW = imageW_;
@@ -38,6 +38,13 @@ class Card {
     
     frontImage.resize(imageW, imageH);
     image(frontImage, x, y);
+    
+    if (mouseX >= x - (w / 2) && mouseX <= x + (w / 2) && mouseY >= y - (imageH / 2) && mouseY <= y + (imageH / 2)) {
+      y = y - 10;
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
   }
   
   // Display methode for the back of the card
@@ -50,6 +57,21 @@ class Card {
     
     backImage.resize(imageW, imageH);
     image(backImage, x, y);
+    
+    fill(255);
+    stroke(0);
+    strokeWeight(2.5);
+    rect(backX, backY, backW, backimageH, 10, 10, 10, 10);
+    
+    image(backImage, backX, backY);
+    backImage.resize(int(backW) - 50, int(backW) - 50); // "backW" has width and height because the picture is and should be rectangle
+    
+    if (mouseX >= x - (backW / 2) && mouseX <= x + (backW / 2) && mouseY >= y - (backimageH / 2) && mouseY <= y + (backimageH / 2)) {
+      backY = backY - 10;
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
   }
   
   // When the player selects one of the cards in his/hers hand

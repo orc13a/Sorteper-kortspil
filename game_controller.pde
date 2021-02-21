@@ -9,7 +9,7 @@ void game() {
   
   
   // Display the game UI (user interface)
-  gameUI();
+  //gameUI();
 }
 
 void mousePressed() {

@@ -1,5 +1,3 @@
-boolean previousHandSizeCheck = false;
-
 class Card {
   // -- Data
   int id;
@@ -38,15 +36,15 @@ class Card {
     imageH = imageH_;
     w = w_;
     
-    frontImage.resize(imageW, imageH);
-    image(frontImage, x, y);
-    
     if (mouseX >= x - (w / 2) && mouseX <= x + (w / 2) && mouseY >= y - (imageH / 2) && mouseY <= y + (imageH / 2)) {
       y = y - 10;
       cursor(HAND);
     } else {
       cursor(ARROW);
     }
+    
+    frontImage.resize(imageW, imageH);
+    image(frontImage, x, y);
   }
   
   // Display methode for the back of the card
@@ -57,8 +55,15 @@ class Card {
     backimageH = imageH_;
     backW = w_;
     
-    backImage.resize(imageW, imageH);
-    image(backImage, x, y);
+    if (mouseX >= backX - (backW / 2) && mouseX <= backX + (backW / 2) && mouseY >= backY - (backimageH / 2) && mouseY <= backY + (backimageH / 2)) {
+      backY = backY - 10;
+      cursor(HAND);
+    } else {
+      cursor(ARROW);
+    }
+    
+    backImage.resize((backW - 50), (backW - 50));
+    image(backImage, backX, backY);
     
     fill(255);
     stroke(0);
@@ -67,13 +72,6 @@ class Card {
     
     image(backImage, backX, backY);
     backImage.resize(int(backW) - 50, int(backW) - 50); // "backW" has width and height because the picture is and should be rectangle
-    
-    if (mouseX >= x - (backW / 2) && mouseX <= x + (backW / 2) && mouseY >= y - (backimageH / 2) && mouseY <= y + (backimageH / 2)) {
-      backY = backY - 10;
-      cursor(HAND);
-    } else {
-      cursor(ARROW);
-    }
   }
   
   // When the player selects one of the cards in his/hers hand
@@ -84,35 +82,5 @@ class Card {
   // When the player selects one of the cards in the opponent's hand
   void oppSelect() {
   
-  }
-  
-  float[] cardsDisplayCal(Player player) {
-    if (player.cards.size() != player.previousHandSize || previousHandSizeCheck == false) {
-      if (player.finish == false && player.cards.size() > 0) {
-        float newCardImageWidth;
-        float cardMargin;
-        float cardW;
-        float spaceBetweenCards;
-        float totalAllCardsW;
-        float cardsDisplayWidth;
-        float cardsDisplayWidthMargin;
-        
-        newCardImageWidth = (width / player.cards.size());
-    
-        if(newCardImageWidth > 200) {
-          newCardImageWidth = 200;
-        }
-        
-        cardMargin = (newCardImageWidth / 100) * 16.5; // 16,5 %
-        cardW = newCardImageWidth - (cardMargin * 2);
-        spaceBetweenCards = cardMargin * (player.cards.size() - 1);
-        totalAllCardsW = cardW * player.cards.size();
-        cardsDisplayWidth = totalAllCardsW + spaceBetweenCards;
-        cardsDisplayWidthMargin = (width - cardsDisplayWidth) / 2;
-      }
-    }
-    
-    float[] returnArray = {newCardImageWidth, cardMargin, cardW, spaceBetweenCards, totalAllCardsW, cardsDisplayWidth, cardsDisplayWidthMargin};
-    return returnArray;
   }
 }

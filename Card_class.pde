@@ -50,7 +50,7 @@ class Card {
       noFill();
       stroke(owOrange);
       strokeWeight(4);
-      rect(x - 1, y, w + 4, imageH, 10);
+      rect(x - 1, y, w + 4, imageH + 1, 10);
     }
   }
   

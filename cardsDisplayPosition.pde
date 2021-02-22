@@ -11,7 +11,7 @@ float cardsDisplayWidthMargin;
 
 float[] cardsDisplayCal(Player player) {
   // We do all these checks so we only calculate on time for each player and if the samme player gets more cards or loses some. 
-  if (player.cards.size() != player.previousHandSize || player.username != previousPlayerHandSizeCheck/*previousHandSizeCheck == false*/) {
+  if (player.cards.size() != player.previousHandSize || player.username != previousPlayerHandSizeCheck) {
     if (player.finish == false && player.cards.size() > 0) {    
       newCardImageWidth = (width / player.cards.size());
   
@@ -32,9 +32,6 @@ float[] cardsDisplayCal(Player player) {
       if (player.username != previousPlayerHandSizeCheck) {
         previousPlayerHandSizeCheck = player.username;
       }
-      /*if (previousHandSizeCheck == false) {
-        previousHandSizeCheck = true;
-      }*/
     }
   }
   

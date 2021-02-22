@@ -3,7 +3,7 @@ int playersTurnIndex = 0;
 // Which player the player is gonna pick a card from (index in allPlayers array) 
 int playerPickFromIndex = 1; // Always one more then playersTurnIndex to get the next player in the array
 // What round it is
-int gameRound = 2;
+int gameRound = 1;
 
 // Function that controls the game itself
 void game() {
@@ -31,12 +31,15 @@ void game() {
     }
   }
   
-  // Checks if the gmae should display only players hand or also an opponets hand
-  if (gameRound == 1) {
-    playersTurn.displayHandFront(playersTurn);
-  } else {
-    playerPickFrom.displayHandBack(playerPickFrom);
-    playersTurn.displayHandFront(playersTurn);
+  // Game mecanichs that should only be displayed if the game is not paused or anything like that
+  if (nextPlayerAlert == false) {
+    // Checks if the gmae should display only players hand or also an opponets hand
+    if (gameRound == 1) {
+      playersTurn.displayHandFront(playersTurn);
+    } else {
+      playerPickFrom.displayHandBack(playerPickFrom);
+      playersTurn.displayHandFront(playersTurn);
+    }
   }
   
   // Display the game UI (user interface)
@@ -44,5 +47,7 @@ void game() {
 }
 
 void mousePressed() {
-  
+  if (nextPlayerAlert == true) {
+    nextPlayerButtonPressed();
+  }
 }

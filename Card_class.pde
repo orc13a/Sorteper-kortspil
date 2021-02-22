@@ -45,6 +45,13 @@ class Card {
     
     frontImage.resize(imageW, imageH);
     image(frontImage, x, y);
+    
+    if (isSelected == true) {
+      noFill();
+      stroke(owOrange);
+      strokeWeight(4);
+      rect(x - 1, y, w + 4, imageH, 10);
+    }
   }
   
   // Display methode for the back of the card
@@ -76,7 +83,15 @@ class Card {
   
   // When the player selects one of the cards in his/hers hand
   void handSelect() {
-  
+    if(id != 666) {
+      if (mouseX >= x - (w / 2) && mouseX <= x + (w / 2) && mouseY >= y - (imageH / 2) && mouseY <= y + (imageH / 2)) {
+        if(isSelected == false) {
+          isSelected = true;
+          
+          playersSelectedCards.add(this);
+        }
+      }
+    }
   }
   
   // When the player selects one of the cards in the opponent's hand

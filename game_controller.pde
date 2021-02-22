@@ -44,6 +44,8 @@ void game() {
       playerPickFrom.displayHandBack(playerPickFrom);
       playersTurn.displayHandFront(playersTurn);
     }
+    
+    pairSelect(playersTurn);
   }
   
   // Display the game UI (user interface)
@@ -51,8 +53,18 @@ void game() {
 }
 
 void mousePressed() {
+  // Whitch player's turn it is
+  Player playersTurn = allPlayers.get(playersTurnIndex);
+  // Which player the player is gonna pick a card from
+  Player playerPickFrom = allPlayers.get(playerPickFromIndex);
+  
   if (nextPlayerAlert == false) {
     nextPlayerButtonPress();
+    
+    for (int i = 0; i < playersTurn.cards.size(); i++) {
+      Card card = playersTurn.cards.get(i);
+      card.handSelect();
+    }
   }
   
   if (nextPlayerAlert == true) {

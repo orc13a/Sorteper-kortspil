@@ -4,7 +4,7 @@ class Player {
   PImage iconImage;
   ArrayList<Card> cards = new ArrayList<Card>(); // players hand
   int previousHandSize;
-  int par = 0;
+  int pair = 0;
   boolean finish = false; // True if the player has none cards left
   
   // -- Constructor

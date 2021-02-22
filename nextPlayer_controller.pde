@@ -17,6 +17,13 @@ void nextPlayer() {
     }
   }
   
+  // If the player has selected cards in storage then they should be removed
+  if (playersSelectedCards.size() > 0) {
+    for (int i = (playersSelectedCards.size() - 1); i >= 0; i--) {
+      playersSelectedCards.remove(i);
+    }
+  }
+  
   nextPlayerAlertButtonPressed = true;
 }
 

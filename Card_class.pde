@@ -99,6 +99,8 @@ class Card {
     if(mouseX >= backX - (backW / 2) && mouseX <= backX + (backW / 2) && mouseY >= backY - (backimageH / 2) && mouseY <= backY + (backimageH / 2)) {
       playersTurn.cards.add(this);
       playerPickFrom.cards.remove(this);
+      
+      playerCardCheck(playerPickFrom); // game_controller
     }
   }
 }

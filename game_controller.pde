@@ -11,14 +11,51 @@ void game() {
   gameBackgroundImage.resize(width, height);
   image(gameBackgroundImage, (width / 2), (height / 2));
   
-  if (nextPlayerAlert == true) {
-    nextPlayer();
-  }
-  
   // Whitch player's turn it is
   Player playersTurn = allPlayers.get(playersTurnIndex);
   // Which player the player is gonna pick a card from
   Player playerPickFrom = allPlayers.get(playerPickFromIndex);
+  
+  playerCardsCheck(playersTurn, playerPickFrom);
+  
+  if (nextPlayerAlert == true) {
+    nextPlayer();
+  }
+  
+  // Game mecanichs that should only be displayed if the game is not paused or anything like that
+  if (nextPlayerAlert == false) {
+    // Checks if the gmae should display only players hand or also an opponets hand
+    if (gameRound == 1) {
+      playersTurn.displayHandFront(playersTurn);
+    } else {
+      playerPickFrom.displayHandBack(playerPickFrom);
+      playersTurn.displayHandFront(playersTurn);
+    }
+    
+    pairSelect(playersTurn, playerPickFrom);
+  }
+  
+  // Display the game UI (user interface)
+  gameUI(playersTurn);
+}
+
+void playerCardsCheck(Player playersTurn, Player playerPickFrom) {
+  // Checks and sets playersTurnIndex to next player with cards in their hand
+  if (playersTurn.finish == true && playersTurn.cards.size() == 0) {
+    // While playerPickFrom has no cards and is not playersTurn, then will we go on to the next player
+    while (playersTurn.finish == true && playersTurn.cards.size() == 0) {  
+      playersTurn = allPlayers.get(playersTurnIndex);
+      
+      // If we have been througt all the players do we start over
+      if (playersTurnIndex == (playersAmount - 1)) {
+        playersTurnIndex = 0;
+      } else {
+        playersTurnIndex++;
+      }
+    }
+    
+    nextPlayerAlert = true;
+  }
   
   // Checks and sets playerPickFromIndex to next opponet with cards in their hand
   if (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0) {
@@ -33,23 +70,15 @@ void game() {
         playerPickFromIndex++;
       }
     }
-  }
-  
-  // Game mecanichs that should only be displayed if the game is not paused or anything like that
-  if (nextPlayerAlert == false) {
-    // Checks if the gmae should display only players hand or also an opponets hand
-    if (gameRound == 1) {
-      playersTurn.displayHandFront(playersTurn);
-    } else {
-      playerPickFrom.displayHandBack(playerPickFrom);
-      playersTurn.displayHandFront(playersTurn);
-    }
     
-    pairSelect(playersTurn);
+    nextPlayerAlert = true;
   }
-  
-  // Display the game UI (user interface)
-  gameUI(playersTurn);
+}
+
+void playerCardCheck(Player player) {
+  if (player.cards.size() == 0) {
+    player.finish = true;
+  }
 }
 
 void mousePressed() {

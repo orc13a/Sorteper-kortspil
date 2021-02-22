@@ -1,6 +1,6 @@
 ArrayList<Card> playersSelectedCards = new ArrayList<Card>();
 
-void pairSelect(Player player) {
+void pairSelect(Player player, Player playerPickFrom) {
   if (playersSelectedCards.size() == 2) {
     int cardOneMatchId = 0;
     
@@ -18,6 +18,8 @@ void pairSelect(Player player) {
       
       player.cards.remove(cardOne);
       player.cards.remove(cardTwo);
+      
+      playerCardCheck(playerPickFrom); // game_controller
     } else {
       cardOne.isSelected = false;
       cardTwo.isSelected = false;

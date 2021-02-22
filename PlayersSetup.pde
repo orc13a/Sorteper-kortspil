@@ -1,5 +1,5 @@
 ArrayList<Player> allPlayers = new ArrayList<Player>();
-int playersAmount;
+int playersAmount = 0;
 
 void playersSetup() {
   // [DEV]

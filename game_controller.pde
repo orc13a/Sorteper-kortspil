@@ -1,7 +1,8 @@
 // Which player's turn it is (index in allPlayers array) 
 int playersTurnIndex = 0;
+int playerPickFromIndex = 1;
 // What round it is
-int gameRound = 1;
+int gameRound = 2;
 
 // Function that controls the game itself
 void game() {
@@ -11,12 +12,25 @@ void game() {
   
   // Whitch player's turn it is
   Player playersTurn = allPlayers.get(playersTurnIndex);
+  Player playerPickFrom = allPlayers.get(playerPickFromIndex);
+  
+  if (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0) {
+    while (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0) {  
+      playerPickFrom = allPlayers.get(playerPickFromIndex);
+      
+      if (playerPickFromIndex == (playersAmount - 1)) {
+        playerPickFromIndex = 0;
+      } else {
+        playerPickFromIndex++;
+      }
+    }
+  }
   
   if (gameRound == 1) {
-    
     playersTurn.displayHandFront(playersTurn);
   } else {
-    
+    playersTurn.displayHandFront(playersTurn);
+    playerPickFrom.displayHandBack(playerPickFrom);
   }
   
   // Display the game UI (user interface)

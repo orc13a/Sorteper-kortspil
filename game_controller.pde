@@ -11,6 +11,10 @@ void game() {
   gameBackgroundImage.resize(width, height);
   image(gameBackgroundImage, (width / 2), (height / 2));
   
+  if (nextPlayerAlert == true) {
+    nextPlayer();
+  }
+  
   // Whitch player's turn it is
   Player playersTurn = allPlayers.get(playersTurnIndex);
   // Which player the player is gonna pick a card from
@@ -47,6 +51,10 @@ void game() {
 }
 
 void mousePressed() {
+  if (nextPlayerAlert == false) {
+    nextPlayerButtonPress();
+  }
+  
   if (nextPlayerAlert == true) {
     nextPlayerButtonPressed();
   }

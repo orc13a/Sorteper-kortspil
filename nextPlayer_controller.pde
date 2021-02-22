@@ -1,20 +1,23 @@
 boolean nextPlayerAlert = false;
+boolean nextPlayerAlertButtonPressed = false;
 
 void nextPlayer() {
-  nextPlayerAlert = true;
-  
-  if (playersTurnIndex == (playersAmount - 1)) {
-    playersTurnIndex = 0;
-    gameRound++;
-  } else {
-    playersTurnIndex++;
+  if (nextPlayerAlertButtonPressed == false) {
+    if (playersTurnIndex == (playersAmount - 1)) {
+      playersTurnIndex = 0;
+      gameRound++;
+    } else {
+      playersTurnIndex++;
+    }
+    
+    if (playerPickFromIndex == (playersAmount - 1)) {
+      playerPickFromIndex = 0;
+    } else {
+      playerPickFromIndex++;
+    }
   }
   
-  if (playerPickFromIndex == (playersAmount - 1)) {
-    playerPickFromIndex = 0;
-  } else {
-    playerPickFromIndex++;
-  }
+  nextPlayerAlertButtonPressed = true;
 }
 
 void nextPlayerAlertBox(Player player) {
@@ -30,14 +33,22 @@ void nextPlayerAlertBox(Player player) {
   
   fill(owOrange);
   noStroke();
-  rect(width / 2, height / 2 + 40, 50, 38, 10, 10, 10, 10);
+  //       x           y            w   h
+  rect(width / 2, height / 2 + 40, 50, 38, 10);
   textSize(16);
   fill(255);
   text("Ja", width / 2, height / 2 + 45);
 }
 
+void nextPlayerButtonPress() {
+  if (mouseX >= (width - 100) - 25 && mouseX <= (width - 100) + 25 && mouseY >= ((height - 150) - 150) - (38 / 2) && mouseY <= ((height - 150) - 150) + (38 / 2)) {
+    nextPlayerAlert = true;
+  }
+}
+
 void nextPlayerButtonPressed() {
-  //if () {
+  if (mouseX >= (width / 2) - 25 && mouseX <= (width / 2) + 25 && mouseY >= (height / 2 + 40) - (38 / 2) && mouseY <= (height / 2 + 40) + (38 / 2)) {
     nextPlayerAlert = false;
-  //}
+    nextPlayerAlertButtonPressed = false;
+  }
 }

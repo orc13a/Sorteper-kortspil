@@ -29,12 +29,12 @@ void game() {
   if (gameRound == 1) {
     playersTurn.displayHandFront(playersTurn);
   } else {
-    playersTurn.displayHandFront(playersTurn);
     playerPickFrom.displayHandBack(playerPickFrom);
+    playersTurn.displayHandFront(playersTurn);
   }
   
   // Display the game UI (user interface)
-  //gameUI();
+  gameUI(playersTurn);
 }
 
 void mousePressed() {

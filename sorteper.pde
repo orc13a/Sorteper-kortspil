@@ -10,6 +10,9 @@ int defFontSize = 12;
 PImage playerIconPlaceholder; // Image placeholder for player icon
 PImage gameBackgroundImage; // background image for when the game is started
 
+// Colors
+color owOrange = #F79D1A;
+
 void setup() {
   fullScreen(); // Program window size
   background(0);

@@ -9,10 +9,10 @@ void gameUI(Player player) {
     nextPlayerBtnY = (height - 150) - 150;
     fill(owOrange);
     noStroke();
-    rect(nextPlayerBtnX, nextPlayerBtnY, 100, 38, 10);
+    rect(nextPlayerBtnX, nextPlayerBtnY, 100, 38, 10); // Button
     fill(255);
     textSize(18);
-    text("Færdig", nextPlayerBtnX, (nextPlayerBtnY + 6));
+    text("Færdig", nextPlayerBtnX, (nextPlayerBtnY + 6)); // Button text
   }
   
   if (nextPlayerAlert == true) {

@@ -58,12 +58,22 @@ void mousePressed() {
   // Which player the player is gonna pick a card from
   Player playerPickFrom = allPlayers.get(playerPickFromIndex);
   
+  // Game mecanichs that should only be available if the game is not paused or anything like that 
   if (nextPlayerAlert == false) {
     nextPlayerButtonPress();
     
+    // Cards in players hand
     for (int i = 0; i < playersTurn.cards.size(); i++) {
       Card card = playersTurn.cards.get(i);
       card.handSelect();
+    }
+    
+    if (gameRound > 1) {
+      // Cards in players pick from hand
+      for (int i = 0; i < playerPickFrom.cards.size(); i++) {
+        Card card = playerPickFrom.cards.get(i);
+        card.oppSelect(playersTurn, playerPickFrom);
+      }
     }
   }
   

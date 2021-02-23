@@ -69,12 +69,21 @@ class Player {
       
       playersAmount = allPlayers.size();
       
-      aPlayerIsFinish = true;
-      //nextPlayerAlert = false;
+      if (aPlayerIsFinish == false) {
+        if (playersTurnIndex == 0) {
+          playersTurnIndex = playersAmount;
+          playerPickFromIndex = playersTurnIndex;
+        } else {
+          playersTurnIndex--;
+          playerPickFromIndex--;
+        }
+      }
       
-      /*if (handPick == true) {
+      aPlayerIsFinish = true;
+      
+      if (handPick == true) {
         nextPlayerAlert = true;
-      }*/
+      }
     }
   }
 }

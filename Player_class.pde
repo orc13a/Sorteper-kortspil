@@ -32,6 +32,8 @@ class Player {
         card.frontDisplay(cardX, (height - 150), int(cDPA[0]), int(cDPA[0]), int(cDPA[2]));
       }
     }
+    
+    //isPlayerFinish();
   }
   
   // For displaying the back of this players hand for an opponent
@@ -53,6 +55,21 @@ class Player {
           card.backDisplay(cardX, (height / 2), int(cDPA[0]), int(cDPA[0]), int(cDPA[2]));
         }
       }
+      
+      //isPlayerFinish();
+    }
+  }
+  
+  void isPlayerFinish() {
+    if(finish != true && cards.size() == 0) {
+      finish = true;
+      
+      finishPlayers.add(this);
+      allPlayers.remove(this);
+      
+      playersAmount = allPlayers.size();
+      
+      nextPlayerAlert = true;
     }
   }
 }

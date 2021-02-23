@@ -6,6 +6,7 @@ int playerPickFromIndex = 1; // Always one more then playersTurnIndex to get the
 int gameRound = 1;
 // If the player picks a card from a opponet
 boolean playerPickedCard = false;
+boolean loserFound = false;
 
 // Function that controls the game itself
 void game() {
@@ -13,25 +14,27 @@ void game() {
   gameBackgroundImage.resize(width, height);
   image(gameBackgroundImage, (width / 2), (height / 2));
   
+  // If "færdig" button has been preesed should we go to the next player
+  if (nextPlayerAlert == true) {
+    nextPlayer(/*playersTurn, playerPickFrom*/);
+  }
+  
   // Whitch player's turn it is
   Player playersTurn = allPlayers.get(playersTurnIndex);
+  
   // Which player the player is gonna pick a card from
-  Player playerPickFrom = allPlayers.get(playerPickFromIndex);
+  Player playerPickFrom;
+  if (finishPlayers.size() != playersAmount) {
+    playerPickFrom = allPlayers.get(playerPickFromIndex);
+  } else {
+    playerPickFrom = allPlayers.get(0);
+    loserFound = true;
+  }
   
   //playerCardsCheck(playersTurn, playerPickFrom);
   
-  // If "færdig" button has been preesed should we go to the next player
-  if (nextPlayerAlert == true) {
-    nextPlayer(playersTurn, playerPickFrom);
-    
-    // Whitch player's turn it is
-    playersTurn = allPlayers.get(playersTurnIndex);
-    // Which player the player is gonna pick a card from
-    playerPickFrom = allPlayers.get(playerPickFromIndex);
-  }
-  
   // Game mecanichs that should only be displayed if the game is not paused or anything like that
-  if (nextPlayerAlert == false) {
+  if (nextPlayerAlert == false && loserFound == false) {
     // Checks if the gmae should display only players hand or also an opponets hand
     if (gameRound == 1) {
       playersTurn.displayHandFront(playersTurn);
@@ -40,57 +43,26 @@ void game() {
       playersTurn.displayHandFront(playersTurn);
     }
     
+    // Function that makes player able to pick pairs
     pairSelect(playersTurn, playerPickFrom);
   }
   
-  // Display the game UI (user interface)
-  gameUI(playersTurn);
-}
-
-void playerCardsCheck(Player playersTurn, Player playerPickFrom) {
-  
-  
-  /*// Checks and sets playersTurnIndex to next player with cards in their hand
-  if (playersTurn.finish == true && playersTurn.cards.size() == 0) {
-    // While playerPickFrom has no cards and is not playersTurn, then will we go on to the next player
-    while (playersTurn.finish == true && playersTurn.cards.size() == 0) {  
-      playersTurn = allPlayers.get(playersTurnIndex);
-      
-      // If we have been througt all the players do we start over
-      if (playersTurnIndex == (playersAmount - 1)) {
-        playersTurnIndex = 0;
-      } else {
-        playersTurnIndex++;
-      }
-    }
-    
-    nextPlayerAlert = true;
+  if (loserFound == true) {
+    text(playersTurn.username + " LOSER", width / 2, height / 2);
   }
   
-  // Checks and sets playerPickFromIndex to next opponet with cards in their hand
-  if (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0) {
-    // While playerPickFrom has no cards and is not playersTurn, then will we go on to the next player
-    while (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0 && playerPickFromIndex != playersTurnIndex) {  
-      playerPickFrom = allPlayers.get(playerPickFromIndex);
-      
-      // If we have been througt all the players do we start over
-      if (playerPickFromIndex == (playersAmount - 1)) {
-        playerPickFromIndex = 0;
-      } else {
-        playerPickFromIndex++;
-      }
-    }
-    
-    nextPlayerAlert = true;
-  }*/
+  if (loserFound == false) {
+    // Display the game UI (user interface)
+    gameUI(playersTurn);
+  }
 }
 
-void playerFinishCheck(Player player, Player playerPickFrom) {
+/*void playerFinishCheck(Player player) {
   if (player.cards.size() == 0) {
     player.finish = true;
-    updateFinishPlayers();
+    updateFinishPlayers(player);
   }
-}
+}*/
 
 void mousePressed() {
   // Whitch player's turn it is

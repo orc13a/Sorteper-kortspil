@@ -1,4 +1,5 @@
 ArrayList<Player> allPlayers = new ArrayList<Player>();
+ArrayList<Player> finishPlayers = new ArrayList<Player>();
 int playersAmount = 0;
 
 void playersSetup() {

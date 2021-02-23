@@ -100,8 +100,12 @@ class Card {
     if(playerPickedCard == false && mouseX >= backX - (backW / 2) && mouseX <= backX + (backW / 2) && mouseY >= backY - (backimageH / 2) && mouseY <= backY + (backimageH / 2)) {
       playersTurn.cards.add(this);
       playerPickFrom.cards.remove(this);
+      
       playerPickedCard = true; // // game_controller
-      playerFinishCheck(playerPickFrom, playerPickFrom); // game_controller
+      
+      playerPickFrom.isPlayerFinish();
+      
+      //playerFinishCheck(playerPickFrom); // game_controller
     }
   }
 }

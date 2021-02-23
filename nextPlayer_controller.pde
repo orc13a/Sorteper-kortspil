@@ -1,59 +1,22 @@
 boolean nextPlayerAlert = false;
 boolean nextPlayerAlertButtonPressed = false;
 
-ArrayList<Player> finishPlayers = new ArrayList<Player>();
-
-void nextPlayer(Player playersTurn, Player playerPickFrom) {
+void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
   if (nextPlayerAlertButtonPressed == false) {
-    println(finishPlayers.size());
-    println('-');
-    playersTurn = allPlayers.get(playersTurnIndex);
-    playerPickFrom = allPlayers.get(playerPickFromIndex);
     
-    if (finishPlayers.size() > 0) {
-      if (playersTurn.finish == true && playersTurn.cards.size() == 0) {
-        while (playersTurn.finish == true && playersTurn.cards.size() == 0) {  
-          playersTurn = allPlayers.get(playersTurnIndex);
-          println(playersTurn.finish);
-          println(playersTurn.username);
-          println('-');
-          // If we have been througt all the players do we start over
-          if (playersTurnIndex == (playersAmount - 1)) {
-            playersTurnIndex = 0;
-          } else {
-            playersTurnIndex++;
-          }
-        }
-      }
+    if (playersTurnIndex == (playersAmount - 1)) {
+      playersTurnIndex = 0;
+      gameRound++;
     } else {
-      if (playersTurnIndex == (playersAmount - 1)) {
-        playersTurnIndex = 0;
-        gameRound++;
-      } else {
-        playersTurnIndex++;
-      }
+      playersTurnIndex++;
     }
+    
     if (playerPickFromIndex == (playersAmount - 1)) {
       playerPickFromIndex = 0;
     } else {
       playerPickFromIndex++;
     }
     
-    /*
-    if (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0) {
-      while (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0 && playerPickFromIndex != playersTurnIndex) {  
-        playerPickFrom = allPlayers.get(playerPickFromIndex);
-        
-        // If we have been througt all the players do we start over
-        if (playerPickFromIndex == (playersAmount - 1)) {
-          playerPickFromIndex = 0;
-        } else {
-          playerPickFromIndex++;
-        }
-      }
-    }
-    
-  */
     // If the player has selected cards in storage then they should be removed
     if (playersSelectedCards.size() > 0) {
       for (int i = (playersSelectedCards.size() - 1); i >= 0; i--) {
@@ -101,7 +64,14 @@ void nextPlayerButtonPressed() {
   }
 }
 
-void updateFinishPlayers() {
+/*void updateFinishPlayers(Player player) {
+  if (player.finish == true && player.cards.size() == 0) {
+    allPlayers.remove(player);
+    finishPlayers.add(player);
+    
+    playersAmount = allPlayers.size();
+    nextPlayerAlert = true;
+  }
   if (finishPlayers.size() > 0) {
     // Clears the array (just easyer) (could be optimised so we done have to loop through here)
     for (int i = (finishPlayers.size() - 1); i >= 0; i--) {
@@ -117,4 +87,4 @@ void updateFinishPlayers() {
       finishPlayers.add(player);
     }
   }
-}
+}*/

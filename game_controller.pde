@@ -5,10 +5,13 @@ int playerPickFromIndex = 1; // Always one more then playersTurnIndex to get the
 // What round it is
 int gameRound = 1;
 int gameRoundPlayer = 1;
+int totalPair = 0;
+int lastTotalPair = 0;
 // If the player picks a card from a opponet
 boolean playerPickedCard = false;
 boolean loserFound = false;
 boolean aPlayerIsFinish = false;
+boolean totalPairChange = false;
 
 // Function that controls the game itself
 void game() {
@@ -32,15 +35,18 @@ void game() {
   }
   
   // Which player the player is gonna pick a card from
-  /*Player playerPickFrom;
-  if (finishPlayers.size() == playersAmount) {
-    playerPickFrom = allPlayers.get(0);
-    loserFound = true;
-  } else {*/
-    Player playerPickFrom = allPlayers.get(playerPickFromIndex);
-  //}
+  Player playerPickFrom;
   
-  //playerCardsCheck(playersTurn, playerPickFrom);
+  if (playersTurnIndex == playersAmount) {
+    playerPickFromIndex = 0;
+    playerPickFrom = allPlayers.get(playerPickFromIndex);
+  } else {
+    playerPickFrom = allPlayers.get(playerPickFromIndex);
+  }
+  
+  if (totalPair == (allCards.size() - 1)) {
+    loserFound = true;
+  }
   
   // Game mecanichs that should only be displayed if the game is not paused or anything like that
   if (nextPlayerAlert == false && loserFound == false) {
@@ -66,12 +72,18 @@ void game() {
   }
 }
 
-/*void playerFinishCheck(Player player) {
-  if (player.cards.size() == 0) {
-    player.finish = true;
-    updateFinishPlayers(player);
+void pairCounter() {
+  if (totalPairChange == true) {
+    totalPair = 0;
+    
+    for (int i = 0; i < allPlayers.size(); i++) {
+      Player player = allPlayers.get(i);
+      totalPair += player.pair;
+    }
+    
+    totalPairChange = false;
   }
-}*/
+}
 
 void mousePressed() {
   // Whitch player's turn it is

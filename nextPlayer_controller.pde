@@ -18,28 +18,6 @@ void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
       playerPickFromIndex = playersTurnIndex + 1;
     }
   
-  /*int newPlayerAmount;
-  
-  if (aPlayerIsFinish == false) {
-    newPlayerAmount = playersAmount - 1;
-  } else {
-    newPlayerAmount = playersAmount;
-  }
-  
-  if (nextPlayerAlertButtonPressed == false) {
-    if (playersTurnIndex == newPlayerAmount) {
-      playersTurnIndex = 0;
-      gameRound++;
-    } else {
-      playersTurnIndex++;
-    }
-    
-    if (playerPickFromIndex == newPlayerAmount) {
-      playerPickFromIndex = 0;
-    } else {
-      playerPickFromIndex++;
-    }*/
-    
     // If the player has selected cards in storage then they should be removed
     if (playersSelectedCards.size() > 0) {
       for (int i = (playersSelectedCards.size() - 1); i >= 0; i--) {

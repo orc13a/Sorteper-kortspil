@@ -2,16 +2,23 @@ boolean nextPlayerAlert = false;
 boolean nextPlayerAlertButtonPressed = false;
 
 void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
+  int newPlayerAmount;
+  
+  if (aPlayerIsFinish == false) {
+    newPlayerAmount = playersAmount - 1;
+  } else {
+    newPlayerAmount = playersAmount;
+  }
+  
   if (nextPlayerAlertButtonPressed == false) {
-    
-    if (playersTurnIndex == (playersAmount - 1)) {
+    if (playersTurnIndex == newPlayerAmount) {
       playersTurnIndex = 0;
       gameRound++;
     } else {
       playersTurnIndex++;
     }
     
-    if (playerPickFromIndex == (playersAmount - 1)) {
+    if (playerPickFromIndex == newPlayerAmount) {
       playerPickFromIndex = 0;
     } else {
       playerPickFromIndex++;
@@ -28,8 +35,12 @@ void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
     }
   }
   
+  if (aPlayerIsFinish == true) {
+    aPlayerIsFinish = false;
+  }
+  
   playerPickedCard = false;
-  nextPlayerAlertButtonPressed = true;
+  nextPlayerAlertButtonPressed = true; 
 }
 
 void nextPlayerAlertBox(Player player) {

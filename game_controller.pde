@@ -7,6 +7,7 @@ int gameRound = 1;
 // If the player picks a card from a opponet
 boolean playerPickedCard = false;
 boolean loserFound = false;
+boolean aPlayerIsFinish = false;
 
 // Function that controls the game itself
 void game() {

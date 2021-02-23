@@ -69,6 +69,7 @@ class Player {
       
       playersAmount = allPlayers.size();
       
+      aPlayerIsFinish = true;
       nextPlayerAlert = true;
     }
   }

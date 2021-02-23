@@ -22,16 +22,23 @@ void game() {
   }
   
   // Whitch player's turn it is
-  Player playersTurn = allPlayers.get(playersTurnIndex);
+  Player playersTurn;
+  
+  if (playersTurnIndex == playersAmount) {
+    playersTurnIndex = 0;
+    playersTurn = allPlayers.get(playersTurnIndex);
+  } else {
+    playersTurn = allPlayers.get(playersTurnIndex);
+  }
   
   // Which player the player is gonna pick a card from
-  Player playerPickFrom;
+  /*Player playerPickFrom;
   if (finishPlayers.size() == playersAmount) {
     playerPickFrom = allPlayers.get(0);
     loserFound = true;
-  } else {
-    playerPickFrom = allPlayers.get(playerPickFromIndex);
-  }
+  } else {*/
+    Player playerPickFrom = allPlayers.get(playerPickFromIndex);
+  //}
   
   //playerCardsCheck(playersTurn, playerPickFrom);
   

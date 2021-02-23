@@ -11,7 +11,7 @@ void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
     if (playersTurnIndex == 0) {
       gameRound++;
     }
-    println(gameRound);
+    
     if (playersTurnIndex == (playersAmount - 1)) {
       playerPickFromIndex = 0;
     } else {

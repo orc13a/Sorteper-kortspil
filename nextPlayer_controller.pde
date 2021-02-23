@@ -1,11 +1,15 @@
 boolean nextPlayerAlert = false;
 boolean nextPlayerAlertButtonPressed = false;
-boolean noFinishPlayers = true;
+
+ArrayList<Player> finishPlayers = new ArrayList<Player>();
 
 void nextPlayer(Player playersTurn, Player playerPickFrom) {
   if (nextPlayerAlertButtonPressed == false) {  
-    // If the next players is not finished
-    if (noFinishPlayers == true && playersTurn.finish == false && playersTurn.cards.size() > 0 && playerPickFrom.finish == false && playerPickFrom.cards.size() > 0) {
+    if (finishPlayers.size() > 0) {
+      //while (playersTurnIndex) {
+        
+      //}
+    } else {
       if (playersTurnIndex == (playersAmount - 1)) {
         playersTurnIndex = 0;
         gameRound++;
@@ -18,23 +22,6 @@ void nextPlayer(Player playersTurn, Player playerPickFrom) {
       } else {
         playerPickFromIndex++;
       }
-      // 
-    }
-    
-    if (playersTurn.finish == true && playersTurn.cards.size() == 0) {
-      // While playerPickFrom has no cards and is not playersTurn, then will we go on to the next player
-      while (playersTurn.finish == true && playersTurn.cards.size() == 0) {  
-        playersTurn = allPlayers.get(playersTurnIndex);
-        
-        // If we have been througt all the players do we start over
-        if (playersTurnIndex == (playersAmount - 1)) {
-          playersTurnIndex = 0;
-        } else {
-          playersTurnIndex++;
-        }
-      }
-      
-      nextPlayerAlert = true;
     }
   
     // If the player has selected cards in storage then they should be removed
@@ -81,5 +68,23 @@ void nextPlayerButtonPressed() {
   if (mouseX >= (width / 2) - 25 && mouseX <= (width / 2) + 25 && mouseY >= (height / 2 + 40) - (38 / 2) && mouseY <= (height / 2 + 40) + (38 / 2)) {
     nextPlayerAlert = false;
     nextPlayerAlertButtonPressed = false;
+  }
+}
+
+void updateFinishPlayers() {
+  if (finishPlayers.size() > 0) {
+    // Clears the array (just easyer) (could be optimised so we done have to loop through here)
+    for (int i = (finishPlayers.size() - 1); i >= 0; i--) {
+      finishPlayers.remove(i);
+    }
+  }
+  
+  // Add finished players
+  for (int i = 0; i < allPlayers.size(); i++) {
+    Player player = allPlayers.get(i);
+    
+    if (player.finish == true && player.cards.size() == 0) {
+      finishPlayers.add(player);
+    }
   }
 }

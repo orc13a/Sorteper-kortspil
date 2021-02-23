@@ -19,13 +19,19 @@ void pairSelect(Player player, Player playerPickFrom) {
       player.cards.remove(cardOne);
       player.cards.remove(cardTwo);
       
-      playerCardCheck(playerPickFrom); // game_controller
+      playerFinishCheck(player, playerPickFrom); // game_controller
     } else {
       cardOne.isSelected = false;
       cardTwo.isSelected = false;
     }
     
-    playersSelectedCards.remove(1);
-    playersSelectedCards.remove(0);
+    if (playersSelectedCards.size() > 0) {
+      for (int i = (playersSelectedCards.size() - 1); i >= 0; i--) {
+        Card card = playersSelectedCards.get(i);
+        card.isSelected = false;
+        
+        playersSelectedCards.remove(i);
+      }
+    }
   }
 }

@@ -96,11 +96,12 @@ class Card {
   
   // When the player selects one of the cards in the opponent's hand
   void oppSelect(Player playersTurn, Player playerPickFrom) {
+    // playerPickedCard from game_controller
     if(playerPickedCard == false && mouseX >= backX - (backW / 2) && mouseX <= backX + (backW / 2) && mouseY >= backY - (backimageH / 2) && mouseY <= backY + (backimageH / 2)) {
       playersTurn.cards.add(this);
       playerPickFrom.cards.remove(this);
       playerPickedCard = true; // // game_controller
-      playerCardCheck(playerPickFrom); // game_controller
+      playerFinishCheck(playerPickFrom, playerPickFrom); // game_controller
     }
   }
 }

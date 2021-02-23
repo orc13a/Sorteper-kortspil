@@ -20,8 +20,9 @@ void game() {
   
   playerCardsCheck(playersTurn, playerPickFrom);
   
+  // If "færdig" button has been preesed should we go to the next player
   if (nextPlayerAlert == true) {
-    nextPlayer();
+    nextPlayer(playersTurn, playerPickFrom);
   }
   
   // Game mecanichs that should only be displayed if the game is not paused or anything like that
@@ -42,7 +43,9 @@ void game() {
 }
 
 void playerCardsCheck(Player playersTurn, Player playerPickFrom) {
-  // Checks and sets playersTurnIndex to next player with cards in their hand
+  
+  
+  /*// Checks and sets playersTurnIndex to next player with cards in their hand
   if (playersTurn.finish == true && playersTurn.cards.size() == 0) {
     // While playerPickFrom has no cards and is not playersTurn, then will we go on to the next player
     while (playersTurn.finish == true && playersTurn.cards.size() == 0) {  
@@ -74,12 +77,13 @@ void playerCardsCheck(Player playersTurn, Player playerPickFrom) {
     }
     
     nextPlayerAlert = true;
-  }
+  }*/
 }
 
-void playerCardCheck(Player player) {
+void playerFinishCheck(Player player, Player playerPickFrom) {
   if (player.cards.size() == 0) {
     player.finish = true;
+    nextPlayer(player, playerPickFrom);
   }
 }
 

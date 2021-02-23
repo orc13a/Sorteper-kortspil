@@ -5,13 +5,13 @@ void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
   if (nextPlayerAlertButtonPressed == false) {
 
     playersTurnIndex = gameRoundPlayer % playersAmount;
-    
+
     gameRoundPlayer++;
     
-    if (playersTurnIndex == (playersAmount)) {
+    if (playersTurnIndex == 0) {
       gameRound++;
     }
-    
+    println(gameRound);
     if (playersTurnIndex == (playersAmount - 1)) {
       playerPickFromIndex = 0;
     } else {

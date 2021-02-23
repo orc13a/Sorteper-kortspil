@@ -68,28 +68,3 @@ void nextPlayerButtonPressed() {
     nextPlayerAlertButtonPressed = false;
   }
 }
-
-/*void updateFinishPlayers(Player player) {
-  if (player.finish == true && player.cards.size() == 0) {
-    allPlayers.remove(player);
-    finishPlayers.add(player);
-    
-    playersAmount = allPlayers.size();
-    nextPlayerAlert = true;
-  }
-  if (finishPlayers.size() > 0) {
-    // Clears the array (just easyer) (could be optimised so we done have to loop through here)
-    for (int i = (finishPlayers.size() - 1); i >= 0; i--) {
-      finishPlayers.remove(i);
-    }
-  }
-  
-  // Add finished players
-  for (int i = 0; i < allPlayers.size(); i++) {
-    Player player = allPlayers.get(i);
-    
-    if (player.finish == true && player.cards.size() == 0) {
-      finishPlayers.add(player);
-    }
-  }
-}*/

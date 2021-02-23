@@ -15,6 +15,7 @@ void pairSelect(Player player, Player playerPickFrom) {
     
     if(cardOneMatchId == cardTwo.id && cardOne.type != cardTwo.type) {
       player.pair++;
+      totalPair++;
       
       player.cards.remove(cardOne);
       player.cards.remove(cardTwo);

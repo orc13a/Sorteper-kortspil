@@ -9,8 +9,8 @@ class Player {
   
   // -- Constructor
   Player(String username_, PImage iconImage_) {
-    username = username_;
-    iconImage = iconImage_;
+    this.username = username_;
+    this.iconImage = iconImage_;
   }
   
   // -- Methods
@@ -60,9 +60,9 @@ class Player {
     }
   }
   
-  void isPlayerFinish(boolean oppPick) {
-    if(finish != true && cards.size() == 0) {
-      finish = true;
+  void isPlayerFinish(boolean handPick) {
+    if(this.finish == false && this.cards.size() == 0) {
+      this.finish = true;
       
       finishPlayers.add(this);
       allPlayers.remove(this);
@@ -70,10 +70,11 @@ class Player {
       playersAmount = allPlayers.size();
       
       aPlayerIsFinish = true;
+      //nextPlayerAlert = false;
       
-      if (oppPick == true) {
+      /*if (handPick == true) {
         nextPlayerAlert = true;
-      }
+      }*/
     }
   }
 }

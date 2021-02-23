@@ -19,51 +19,51 @@ class Card {
   
   // -- Constructor
   Card(int id_, String name_, String type_, PImage frontImage_, PImage backImage_) {
-    id = id_;
-    name = name_;
-    type = type_;
-    frontImage = frontImage_;
-    backImage = backImage_;
+    this.id = id_;
+    this.name = name_;
+    this.type = type_;
+    this.frontImage = frontImage_;
+    this.backImage = backImage_;
   }
   
   // -- Methods
   
   // Display methode for the font of the card
   void frontDisplay(float x_, float y_, int imageW_, int imageH_, int w_) {
-    x = x_;
-    y = y_;
-    imageW = imageW_;
-    imageH = imageH_;
-    w = w_;
+    this.x = x_;
+    this.y = y_;
+    this.imageW = imageW_;
+    this.imageH = imageH_;
+    this.w = w_;
     
-    if (mouseX >= x - (w / 2) && mouseX <= x + (w / 2) && mouseY >= y - (imageH / 2) && mouseY <= y + (imageH / 2)) {
-      y = y - 10;
+    if (mouseX >= this.x - (w / 2) && mouseX <= this.x + (w / 2) && mouseY >= this.y - (imageH / 2) && mouseY <= this.y + (imageH / 2)) {
+      this.y = this.y - 10;
       cursor(HAND);
     } else {
       cursor(ARROW);
     }
     
     //frontImage.resize(imageW, imageH);
-    image(frontImage, x, y, imageW, imageH);
+    image(this.frontImage, this.x, this.y, this.imageW, this.imageH);
     
     if (isSelected == true) {
       noFill();
       stroke(owOrange);
       strokeWeight(4);
-      rect(x - 1, y, w + 4, imageH + 1, 10);
+      rect(this.x - 1, this.y, this.w + 4, this.imageH + 1, 10);
     }
   }
   
   // Display methode for the back of the card
   void backDisplay(float x_, float y_, int imageW_, int imageH_, int w_) {
-    backX = x_;
-    backY = y_;
-    backimageW = imageW_;
-    backimageH = imageH_;
-    backW = w_;
+    this.backX = x_;
+    this.backY = y_;
+    this.backimageW = imageW_;
+    this.backimageH = imageH_;
+    this.backW = w_;
     
-    if (mouseX >= backX - (backW / 2) && mouseX <= backX + (backW / 2) && mouseY >= backY - (backimageH / 2) && mouseY <= backY + (backimageH / 2)) {
-      backY = backY - 10;
+    if (mouseX >= this.backX - (this.backW / 2) && mouseX <= this.backX + (this.backW / 2) && mouseY >= this.backY - (backimageH / 2) && mouseY <= this.backY + (this.backimageH / 2)) {
+      this.backY = this.backY - 10;
       cursor(HAND);
     } else {
       cursor(ARROW);
@@ -75,18 +75,18 @@ class Card {
     fill(255);
     stroke(0);
     strokeWeight(2.5);
-    rect(backX, backY, backW, backimageH, 10, 10, 10, 10);
+    rect(this.backX, this.backY, this.backW, this.backimageH, 10, 10, 10, 10);
     
-    image(backImage, backX, backY, int(backW) - 50, int(backW) - 50);
+    image(this.backImage, this.backX, this.backY, int(this.backW) - 50, int(this.backW) - 50);
     //backImage.resize(int(backW) - 50, int(backW) - 50); // "backW" has width and height because the picture is and should be rectangle
   }
   
   // When the player selects one of the cards in his/hers hand
   void handSelect() {
-    if(id != 666) {
-      if (mouseX >= x - (w / 2) && mouseX <= x + (w / 2) && mouseY >= y - (imageH / 2) && mouseY <= y + (imageH / 2)) {
+    if(this.id != 666) {
+      if (mouseX >= this.x - (this.w / 2) && mouseX <= this.x + (this.w / 2) && mouseY >= this.y - (this.imageH / 2) && mouseY <= y + (this.imageH / 2)) {
         if(isSelected == false) {
-          isSelected = true;
+          this.isSelected = true;
           
           playersSelectedCards.add(this);
         }
@@ -97,7 +97,7 @@ class Card {
   // When the player selects one of the cards in the opponent's hand
   void oppSelect(Player playersTurn, Player playerPickFrom) {
     // playerPickedCard from game_controller
-    if(playerPickedCard == false && mouseX >= backX - (backW / 2) && mouseX <= backX + (backW / 2) && mouseY >= backY - (backimageH / 2) && mouseY <= backY + (backimageH / 2)) {
+    if(playerPickedCard == false && mouseX >= this.backX - (this.backW / 2) && mouseX <= this.backX + (this.backW / 2) && mouseY >= this.backY - (this.backimageH / 2) && mouseY <= this.backY + (this.backimageH / 2)) {
       playersTurn.cards.add(this);
       playerPickFrom.cards.remove(this);
       

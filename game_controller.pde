@@ -34,17 +34,20 @@ void game() {
     playersTurn = allPlayers.get(playersTurnIndex);
   }
   
+  //pairCounter();
+  
   // Which player the player is gonna pick a card from
   Player playerPickFrom;
   
-  if (playersTurnIndex == playersAmount) {
+  if (playerPickFromIndex == playersAmount) {
     playerPickFromIndex = 0;
     playerPickFrom = allPlayers.get(playerPickFromIndex);
   } else {
     playerPickFrom = allPlayers.get(playerPickFromIndex);
   }
   
-  if (totalPair == (allCards.size() - 1)) {
+  if (totalPair == (allCards.size() - 1) / 2) {
+    nextPlayerAlert = false;
     loserFound = true;
   }
   
@@ -79,6 +82,13 @@ void pairCounter() {
     for (int i = 0; i < allPlayers.size(); i++) {
       Player player = allPlayers.get(i);
       totalPair += player.pair;
+    }
+    
+    if (finishPlayers.size() > 0) {
+      for (int i = 0; i < finishPlayers.size(); i++) {
+        Player player = finishPlayers.get(i);
+        totalPair += player.pair;
+      }
     }
     
     totalPairChange = false;

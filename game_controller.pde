@@ -4,6 +4,8 @@ int playersTurnIndex = 0;
 int playerPickFromIndex = 1; // Always one more then playersTurnIndex to get the next player in the array
 // What round it is
 int gameRound = 1;
+// If the player picks a card from a opponet
+boolean playerPickedCard = false;
 
 // Function that controls the game itself
 void game() {
@@ -28,7 +30,7 @@ void game() {
     if (gameRound == 1) {
       playersTurn.displayHandFront(playersTurn);
     } else {
-      playerPickFrom.displayHandBack(playerPickFrom);
+      playerPickFrom.displayHandBack(playerPickFrom, playerPickedCard);
       playersTurn.displayHandFront(playersTurn);
     }
     

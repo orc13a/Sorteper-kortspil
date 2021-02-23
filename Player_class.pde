@@ -35,20 +35,23 @@ class Player {
   }
   
   // For displaying the back of this players hand for an opponent
-  void displayHandBack(Player player) {    
-    float[] cDPA = cardsDisplayCal(player);
+  void displayHandBack(Player player, boolean playerPickedCard) {   
+    // If the player has not picked a card, then display the cards
+    if (playerPickedCard == false) {
+      float[] cDPA = cardsDisplayCal(player);
     
-    for (int i = 0; i < cards.size(); i++) {
-      Card card = cards.get(i);
-      
-      if (i == 0) {
-        float cardX = cDPA[6] + (cDPA[2] / 2);
+      for (int i = 0; i < cards.size(); i++) {
+        Card card = cards.get(i);
         
-        card.backDisplay(cardX, (height / 2), int(cDPA[0]), int(cDPA[0]), int(cDPA[2]));
-      } else {
-        float cardX = cDPA[6] + (cDPA[2] / 2) + ((cDPA[2] + cDPA[1]) * i);
-        
-        card.backDisplay(cardX, (height / 2), int(cDPA[0]), int(cDPA[0]), int(cDPA[2]));
+        if (i == 0) {
+          float cardX = cDPA[6] + (cDPA[2] / 2);
+          
+          card.backDisplay(cardX, (height / 2), int(cDPA[0]), int(cDPA[0]), int(cDPA[2]));
+        } else {
+          float cardX = cDPA[6] + (cDPA[2] / 2) + ((cDPA[2] + cDPA[1]) * i);
+          
+          card.backDisplay(cardX, (height / 2), int(cDPA[0]), int(cDPA[0]), int(cDPA[2]));
+        }
       }
     }
   }

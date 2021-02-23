@@ -26,7 +26,7 @@ void nextPlayer() {
       playersSelectedCards.remove(i);
     }
   }
-  
+  playerPickedCard = false;
   nextPlayerAlertButtonPressed = true;
 }
 

@@ -4,6 +4,7 @@ int playersTurnIndex = 0;
 int playerPickFromIndex = 1; // Always one more then playersTurnIndex to get the next player in the array
 // What round it is
 int gameRound = 1;
+int gameRoundPlayer = 1;
 // If the player picks a card from a opponet
 boolean playerPickedCard = false;
 boolean loserFound = false;
@@ -25,11 +26,11 @@ void game() {
   
   // Which player the player is gonna pick a card from
   Player playerPickFrom;
-  if (finishPlayers.size() != playersAmount) {
-    playerPickFrom = allPlayers.get(playerPickFromIndex);
-  } else {
+  if (finishPlayers.size() == playersAmount) {
     playerPickFrom = allPlayers.get(0);
     loserFound = true;
+  } else {
+    playerPickFrom = allPlayers.get(playerPickFromIndex);
   }
   
   //playerCardsCheck(playersTurn, playerPickFrom);

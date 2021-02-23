@@ -60,7 +60,7 @@ class Player {
     }
   }
   
-  void isPlayerFinish() {
+  void isPlayerFinish(boolean oppPick) {
     if(finish != true && cards.size() == 0) {
       finish = true;
       
@@ -70,7 +70,10 @@ class Player {
       playersAmount = allPlayers.size();
       
       aPlayerIsFinish = true;
-      nextPlayerAlert = true;
+      
+      if (oppPick == true) {
+        nextPlayerAlert = true;
+      }
     }
   }
 }

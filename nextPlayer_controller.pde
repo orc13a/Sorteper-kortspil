@@ -2,7 +2,23 @@ boolean nextPlayerAlert = false;
 boolean nextPlayerAlertButtonPressed = false;
 
 void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
-  int newPlayerAmount;
+  if (nextPlayerAlertButtonPressed == false) {
+
+    playersTurnIndex = gameRoundPlayer % playersAmount;
+    
+    gameRoundPlayer++;
+    
+    if (playersTurnIndex == (playersAmount)) {
+      gameRound++;
+    }
+    
+    if (playersTurnIndex == (playersAmount - 1)) {
+      playerPickFromIndex = 0;
+    } else {
+      playerPickFromIndex = playersTurnIndex + 1;
+    }
+  
+  /*int newPlayerAmount;
   
   if (aPlayerIsFinish == false) {
     newPlayerAmount = playersAmount - 1;
@@ -22,7 +38,7 @@ void nextPlayer(/*Player playersTurn, Player playerPickFrom*/) {
       playerPickFromIndex = 0;
     } else {
       playerPickFromIndex++;
-    }
+    }*/
     
     // If the player has selected cards in storage then they should be removed
     if (playersSelectedCards.size() > 0) {

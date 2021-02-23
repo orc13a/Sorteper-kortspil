@@ -103,7 +103,7 @@ class Card {
       
       playerPickedCard = true; // // game_controller
       
-      playerPickFrom.isPlayerFinish();
+      playerPickFrom.isPlayerFinish(true);
       
       //playerFinishCheck(playerPickFrom); // game_controller
     }

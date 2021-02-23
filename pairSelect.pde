@@ -19,7 +19,7 @@ void pairSelect(Player player, Player playerPickFrom) {
       player.cards.remove(cardOne);
       player.cards.remove(cardTwo);
       
-      player.isPlayerFinish();
+      player.isPlayerFinish(false);
       
       //playerFinishCheck(player); // game_controller
       //updateFinishPlayers(player); // nextPlayer_controller

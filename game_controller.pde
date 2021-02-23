@@ -20,11 +20,6 @@ void game() {
   
   playerCardsCheck(playersTurn, playerPickFrom);
   
-  // If "færdig" button has been preesed should we go to the next player
-  if (nextPlayerAlert == true) {
-    nextPlayer(playersTurn, playerPickFrom);
-  }
-  
   // Game mecanichs that should only be displayed if the game is not paused or anything like that
   if (nextPlayerAlert == false) {
     // Checks if the gmae should display only players hand or also an opponets hand
@@ -36,6 +31,11 @@ void game() {
     }
     
     pairSelect(playersTurn, playerPickFrom);
+  }
+  
+  // If "færdig" button has been preesed should we go to the next player
+  if (nextPlayerAlert == true) {
+    nextPlayer(playersTurn, playerPickFrom);
   }
   
   // Display the game UI (user interface)

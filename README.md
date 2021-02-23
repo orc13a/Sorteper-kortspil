@@ -62,7 +62,7 @@ Vi har gjort sådan at kortene bliver displayet vha. en loop funktion
 #### 5.Klasse-diagram & flowchart
 Klasse-diagram
 
-![Billede af klasse-diagram](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/Kortspil3.png "img3") 
+![Billede af klasse-diagram](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/V3-Klassediagram.PNG "img3") 
 
 Flowchart
 

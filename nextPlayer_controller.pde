@@ -4,37 +4,27 @@ boolean nextPlayerAlertButtonPressed = false;
 ArrayList<Player> finishPlayers = new ArrayList<Player>();
 
 void nextPlayer(Player playersTurn, Player playerPickFrom) {
-  if (nextPlayerAlertButtonPressed == false) {  
+  if (nextPlayerAlertButtonPressed == false) {
+    println(finishPlayers.size());
+    println('-');
+    playersTurn = allPlayers.get(playersTurnIndex);
+    playerPickFrom = allPlayers.get(playerPickFromIndex);
+    
     if (finishPlayers.size() > 0) {
-      println(finishPlayers.size());
-      playersTurn = allPlayers.get(playersTurnIndex);
-      playerPickFrom = allPlayers.get(playerPickFromIndex);
-      
-      while (playersTurn.finish == true && playersTurn.cards.size() == 0) {  
-        playersTurn = allPlayers.get(playersTurnIndex);
-        
-        // If we have been througt all the players do we start over
-        if (playersTurnIndex == (playersAmount - 1)) {
-          playersTurnIndex = 0;
-        } else {
-          playersTurnIndex++;
-        }
-      }
-      
-      if (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0) {
-        // While playerPickFrom has no cards and is not playersTurn, then will we go on to the next player
-        while (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0 && playerPickFromIndex != playersTurnIndex) {  
-          playerPickFrom = allPlayers.get(playerPickFromIndex);
-          
+      if (playersTurn.finish == true && playersTurn.cards.size() == 0) {
+        while (playersTurn.finish == true && playersTurn.cards.size() == 0) {  
+          playersTurn = allPlayers.get(playersTurnIndex);
+          println(playersTurn.finish);
+          println(playersTurn.username);
+          println('-');
           // If we have been througt all the players do we start over
-          if (playerPickFromIndex == (playersAmount - 1)) {
-            playerPickFromIndex = 0;
+          if (playersTurnIndex == (playersAmount - 1)) {
+            playersTurnIndex = 0;
           } else {
-            playerPickFromIndex++;
+            playersTurnIndex++;
           }
         }
       }
-      
     } else {
       if (playersTurnIndex == (playersAmount - 1)) {
         playersTurnIndex = 0;
@@ -42,14 +32,28 @@ void nextPlayer(Player playersTurn, Player playerPickFrom) {
       } else {
         playersTurnIndex++;
       }
-      
-      if (playerPickFromIndex == (playersAmount - 1)) {
-        playerPickFromIndex = 0;
-      } else {
-        playerPickFromIndex++;
+    }
+    if (playerPickFromIndex == (playersAmount - 1)) {
+      playerPickFromIndex = 0;
+    } else {
+      playerPickFromIndex++;
+    }
+    
+    /*
+    if (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0) {
+      while (playerPickFrom.finish == true && playerPickFrom.cards.size() == 0 && playerPickFromIndex != playersTurnIndex) {  
+        playerPickFrom = allPlayers.get(playerPickFromIndex);
+        
+        // If we have been througt all the players do we start over
+        if (playerPickFromIndex == (playersAmount - 1)) {
+          playerPickFromIndex = 0;
+        } else {
+          playerPickFromIndex++;
+        }
       }
     }
-  
+    
+  */
     // If the player has selected cards in storage then they should be removed
     if (playersSelectedCards.size() > 0) {
       for (int i = (playersSelectedCards.size() - 1); i >= 0; i--) {

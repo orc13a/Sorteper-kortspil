@@ -43,8 +43,8 @@ class Card {
       cursor(ARROW);
     }
     
-    frontImage.resize(imageW, imageH);
-    image(frontImage, x, y);
+    //frontImage.resize(imageW, imageH);
+    image(frontImage, x, y, imageW, imageH);
     
     if (isSelected == true) {
       noFill();
@@ -77,8 +77,8 @@ class Card {
     strokeWeight(2.5);
     rect(backX, backY, backW, backimageH, 10, 10, 10, 10);
     
-    image(backImage, backX, backY);
-    backImage.resize(int(backW) - 50, int(backW) - 50); // "backW" has width and height because the picture is and should be rectangle
+    image(backImage, backX, backY, int(backW) - 50, int(backW) - 50);
+    //backImage.resize(int(backW) - 50, int(backW) - 50); // "backW" has width and height because the picture is and should be rectangle
   }
   
   // When the player selects one of the cards in his/hers hand

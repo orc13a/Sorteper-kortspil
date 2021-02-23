@@ -22,6 +22,10 @@ void setup() {
   textAlign(CENTER);
   imageMode(CENTER);
   
+  // Better grafics
+  //smooth(8); // 2,3,4,8 values
+  //pixelDensity(2); // 1 / 2 values
+  
   // To tell the user that the game is loading
   text("Loading...", (width / 2), (height / 2));
   

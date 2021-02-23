@@ -18,7 +18,17 @@ void game() {
   // Which player the player is gonna pick a card from
   Player playerPickFrom = allPlayers.get(playerPickFromIndex);
   
-  playerCardsCheck(playersTurn, playerPickFrom);
+  //playerCardsCheck(playersTurn, playerPickFrom);
+  
+  // If "færdig" button has been preesed should we go to the next player
+  if (nextPlayerAlert == true) {
+    nextPlayer(playersTurn, playerPickFrom);
+    
+    // Whitch player's turn it is
+    playersTurn = allPlayers.get(playersTurnIndex);
+    // Which player the player is gonna pick a card from
+    playerPickFrom = allPlayers.get(playerPickFromIndex);
+  }
   
   // Game mecanichs that should only be displayed if the game is not paused or anything like that
   if (nextPlayerAlert == false) {
@@ -31,11 +41,6 @@ void game() {
     }
     
     pairSelect(playersTurn, playerPickFrom);
-  }
-  
-  // If "færdig" button has been preesed should we go to the next player
-  if (nextPlayerAlert == true) {
-    nextPlayer(playersTurn, playerPickFrom);
   }
   
   // Display the game UI (user interface)
@@ -83,7 +88,7 @@ void playerCardsCheck(Player playersTurn, Player playerPickFrom) {
 void playerFinishCheck(Player player, Player playerPickFrom) {
   if (player.cards.size() == 0) {
     player.finish = true;
-    nextPlayer(player, playerPickFrom);
+    updateFinishPlayers();
   }
 }
 

@@ -11,6 +11,10 @@
 ---
 
 ### Ekstra information
+####
+Find den seneste version af vores kortspil under [Releases](https://github.com/orc13a/Sorteper-kortspil/releases).
+Du skal downloade `sorteper.zip`.
+
 #### Issues side
 Vi har en [Issues](https://github.com/orc13a/Sorteper-kortspil/issues) side, der kan man se de bugs vi kender til og andet. Før du spiller burde du tage et kig på [Issues](https://github.com/orc13a/Sorteper-kortspil/issues) siden for at læse om hvilken bugs der er i spillet.
 

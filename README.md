@@ -10,7 +10,13 @@
 
 ---
 ### Ekstra information
+#### Issues side
+Vi har en [Issues](https://github.com/orc13a/Sorteper-kortspil/issues) side, der kan man se de bugs vi kender til og andet. Før du spiller burde du tage et kig på [Issues](https://github.com/orc13a/Sorteper-kortspil/issues) siden for at læse om hvilken bugs der er i spillet.
 
+Alle de kendte bugs er en mindre nogen, men gør at spillet kan være lidt mærklig nogen gange. Dog ingen bugs som få spillet til at crashe.
+
+#### Wiki side
+Vi har en [Wiki](https://github.com/orc13a/Sorteper-kortspil/wiki) side, hvor man kan få hjælp til hvordan man spiller sorteper eller spillet.
 
 ### 1.Kort beskrivelse af projektet
 Dette projekt er del 2 af et kortspil forløb, hvor man i den første del skulle designe en kortspils App til en specifik målgruppe vha. KommIT A. I den anden del skal gruppen programmere stilladset af Appen vha. Programmering B

@@ -17,6 +17,14 @@ void gameUI(Player player) {
     textSize(18);
     text("Færdig", nextPlayerBtnX, (nextPlayerBtnY + 6)); // Button text
     
+    
+      if (gameRound == 1){
+    fill(0);
+    textSize(40);
+    text("Match dine par", width/2,nextPlayerBtnY);
+    textSize(defFontSize);
+    
+  }
     // Player details
     // Name 
     
@@ -28,4 +36,7 @@ void gameUI(Player player) {
   if (nextPlayerAlert == true) {
     nextPlayerAlertBox(player);
   }
+  
+
+    
 }

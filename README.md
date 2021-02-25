@@ -7,10 +7,10 @@
 4. Teknisk beskrivelse + et par diagrammer
 5. Klassediagram & flowchart
 
-## 1.Kort beskrivelse af projektet
+### 1.Kort beskrivelse af projektet
 Dette projekt er del 2 af et kortspil forløb, hvor man i den første del skulle designe en kortspils App til en specifik målgruppe vha. KommIT A. I den anden del skal gruppen programmere stilladset af Appen vha. Programmering B
 
-## 2.Krav specifikationer
+### 2.Krav specifikationer
 
 Skal have de rigtige regler fra sorteper
 - Spillet er bygget op af det originale-sorteper
@@ -50,10 +50,10 @@ De 3 ikoner i midten er de andre  spillere, Kasper kan vælge en af dem og efter
 
 Vi ser det samme som før, men nu har Kasper trykket på tandhjulet oppe i højre hjørne.
 
-## 4.Teknisk beskrivelse + et par diagrammer
+### 4.Teknisk beskrivelse + et par diagrammer
 Vi har gjort sådan at kortene bliver displayet vha. en loop funktion 
 
-## 5.Klasse-diagram & flowchart
+### 5.Klasse-diagram & flowchart
 Klasse-diagram
 
 ![Billede af klasse-diagram](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/V3-Klassediagram.PNG "img3") 

@@ -71,8 +71,7 @@ class Player {
       
       if (aPlayerIsFinish == false) {
         if (playersTurnIndex == 0) {
-          playersTurnIndex = playersAmount;
-          playerPickFromIndex = playersTurnIndex;
+          playerPickFromIndex = 0;
         } else {
           playersTurnIndex--;
           playerPickFromIndex--;

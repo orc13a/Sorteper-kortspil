@@ -49,7 +49,11 @@ void game() {
     playerPickFrom = allPlayers.get(playerPickFromIndex);
   } else {
     if (noMorePickCards != true) {
-      playerPickFrom = allPlayers.get(playerPickFromIndex);
+      if (playerPickFromIndex == -1) {
+        playerPickFrom = allPlayers.get(0);
+      } else {
+        playerPickFrom = allPlayers.get(playerPickFromIndex);
+      }
     } else {
       playerPickFrom = allPlayers.get(0);
     }
@@ -108,10 +112,41 @@ void pairCounter() {
 }
 
 void mousePressed() {
+  // #########################
+  //   Player index checking
+  // #########################
   // Whitch player's turn it is
-  Player playersTurn = allPlayers.get(playersTurnIndex);
+  Player playersTurn;
+  
+  if (playersTurnIndex == playersAmount) {
+    playersTurnIndex = 0;
+    playersTurn = allPlayers.get(playersTurnIndex);
+  } else {
+    playersTurn = allPlayers.get(playersTurnIndex);
+  }
+  
   // Which player the player is gonna pick a card from
-  Player playerPickFrom = allPlayers.get(playerPickFromIndex);
+  Player playerPickFrom;
+  
+  if (allPlayers.size() == 1) {
+    noMorePickCards = true;
+  }
+  
+  if (playerPickFromIndex == playersAmount && loserFound != true && noMorePickCards != true) {
+    playerPickFromIndex = 0;
+    playerPickFrom = allPlayers.get(playerPickFromIndex);
+  } else {
+    if (noMorePickCards != true) {
+      if (playerPickFromIndex == -1) {
+        playerPickFrom = allPlayers.get(0);
+      } else {
+        playerPickFrom = allPlayers.get(playerPickFromIndex);
+      }
+    } else {
+      playerPickFrom = allPlayers.get(0);
+    }
+  }
+  // #########################
   
   // Game mecanichs that should only be available if the game is not paused or anything like that 
   if (nextPlayerAlert == false) {

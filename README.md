@@ -11,7 +11,7 @@
 ---
 
 ### Ekstra information
-####
+#### Releases
 Find den seneste version af vores kortspil under [Releases](https://github.com/orc13a/Sorteper-kortspil/releases).
 Du skal downloade `sorteper.zip`.
 

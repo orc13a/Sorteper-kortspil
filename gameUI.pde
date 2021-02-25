@@ -16,6 +16,9 @@ void gameUI(Player player) {
     fill(255);
     textSize(18);
     text("Færdig", nextPlayerBtnX, (nextPlayerBtnY + 6)); // Button text
+    
+    // Player details
+    image(player.iconImage, 100, 100);
   }
   
   if (nextPlayerAlert == true) {

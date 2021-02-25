@@ -10,6 +10,7 @@ int lastTotalPair = 0;
 // If the player picks a card from a opponet
 boolean playerPickedCard = false;
 boolean loserFound = false;
+boolean noMorePickCards = false;
 boolean aPlayerIsFinish = false;
 boolean totalPairChange = false;
 
@@ -40,14 +41,14 @@ void game() {
   Player playerPickFrom;
   
   if (allPlayers.size() == 1) {
-    loserFound = true;
+    noMorePickCards = true;
   }
   
-  if (playerPickFromIndex == playersAmount && loserFound != true) {
+  if (playerPickFromIndex == playersAmount && loserFound != true && noMorePickCards != true) {
     playerPickFromIndex = 0;
     playerPickFrom = allPlayers.get(playerPickFromIndex);
   } else {
-    if (loserFound != true) {
+    if (noMorePickCards != true) {
       playerPickFrom = allPlayers.get(playerPickFromIndex);
     } else {
       playerPickFrom = allPlayers.get(0);
@@ -57,6 +58,7 @@ void game() {
   if (totalPair == (allCards.size() - 1) / 2) {
     nextPlayerAlert = false;
     loserFound = true;
+    noMorePickCards = true;
   }
   
   // Game mecanichs that should only be displayed if the game is not paused or anything like that
@@ -65,7 +67,9 @@ void game() {
     if (gameRound == 1) {
       playersTurn.displayHandFront(playersTurn);
     } else {
-      playerPickFrom.displayHandBack(playerPickFrom, playerPickedCard);
+      if (noMorePickCards != true) {
+        playerPickFrom.displayHandBack(playerPickFrom, playerPickedCard);
+      }
       playersTurn.displayHandFront(playersTurn);
     }
     

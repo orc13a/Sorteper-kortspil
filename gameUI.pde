@@ -18,7 +18,11 @@ void gameUI(Player player) {
     text("Færdig", nextPlayerBtnX, (nextPlayerBtnY + 6)); // Button text
     
     // Player details
-    //image(player.iconImage, 100, 100);
+    // Name 
+    
+    // Icon and outline
+    image(player.iconImage, 100, 100, 60, 60);
+    image(loadImage("player-icon-outline-gold.png"), 100, 100, 140, 140);
   }
   
   if (nextPlayerAlert == true) {

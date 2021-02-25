@@ -9,6 +9,7 @@
 5. Klassediagram & flowchart
 
 ---
+
 ### Ekstra information
 #### Issues side
 Vi har en [Issues](https://github.com/orc13a/Sorteper-kortspil/issues) side, der kan man se de bugs vi kender til og andet. Før du spiller burde du tage et kig på [Issues](https://github.com/orc13a/Sorteper-kortspil/issues) siden for at læse om hvilken bugs der er i spillet.
@@ -54,8 +55,16 @@ Dette er et skærm billede af hvordan det kommer til at se ud, når spillet er i
 
 Vi ser det samme som før, men nu har Kasper trykket på tandhjulet oppe i højre hjørne.
 
-### 4.Teknisk beskrivelse + et par diagrammer
-Vi har gjort sådan at kortene bliver displayet vha. en loop funktion 
+### 4.Teknisk beskrivelse
+#### Uddeling af kort
+Programmet kigger på hvor mange spillere der er og dividere det. Hvis regnestykket ikke går op vil de overskydene kort blive givet fra fra toppen af. Eksemple hvis man er 4 spiller og der er 25 kort, så ville spiller 1 få et kort mere end de andre 3 spillere.
+
+#### Visning af kort på skærmen
+Forsiden af kortene er et billede som er `1000x1000`, derfor kan vi ikke bare sige at hvis musen er inden for billedet brede og højde skal den gøre noget.
+Derfor regnede vi ud hvor stor en procent del af billede kortet er på. Dermed kan vi udregne hvor mange pixels selve kortet er på billedet.
+
+Dermed kan vi også udregne hvor meget det samlede område alle en spiller kort vil dække på skærmen. Dermed kan vi regne det ud og trække det fra vinduet brede og dividere det med 2, for at får der hvor vi skal starte med at tegne det føste kort. Denne funktion findes i filen `cardsDisplayPosition.pde`.
+Funktionen bruges i `Player` klassen så de udregnede værdier kan gives til `Card` klassen `Display` metode igennem `displayHandFront` og `displayHandBack` metoderne i `Player` klassen. Se også Klasse-diagrammerne.
 
 ### 5.Klasse-diagram & flowchart
 Klasse-diagram
@@ -65,6 +74,8 @@ Klasse-diagram
 Flowchart
 
 ![Billede af Flowchart](https://raw.githubusercontent.com/orc13a/Sorteper-kortspil/README-files/Kortspil4.png "img4")
+
+---
 
 #### Lavet af 
 Oliver C, Kasper, Gustav & Celia.<br>

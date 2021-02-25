@@ -39,11 +39,19 @@ void game() {
   // Which player the player is gonna pick a card from
   Player playerPickFrom;
   
-  if (playerPickFromIndex == playersAmount) {
+  if (allPlayers.size() == 1) {
+    loserFound = true;
+  }
+  
+  if (playerPickFromIndex == playersAmount && loserFound != true) {
     playerPickFromIndex = 0;
     playerPickFrom = allPlayers.get(playerPickFromIndex);
   } else {
-    playerPickFrom = allPlayers.get(playerPickFromIndex);
+    if (loserFound != true) {
+      playerPickFrom = allPlayers.get(playerPickFromIndex);
+    } else {
+      playerPickFrom = allPlayers.get(0);
+    }
   }
   
   if (totalPair == (allCards.size() - 1) / 2) {

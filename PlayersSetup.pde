@@ -75,6 +75,7 @@ void playersSetup() {
       }
       
       createPlayerObjs = false;
+      playersAmount = allPlayers.size();
     }
     
     
@@ -92,8 +93,8 @@ void playersSetup() {
     
     textFont(robo);
     fill(0);
-    textSize(18);
-    text(userInput, (width / 2), (height / 2));
+    textSize(20);
+    text(userInput, (width / 2), (height / 2) + 8);
     
     if (frameCount % 60 == 0) {
       if (showBlinkCursor == true) {
@@ -105,8 +106,17 @@ void playersSetup() {
     
     if (showBlinkCursor == true) {
       stroke(0);
-      line((width / 2) + textWidth(userInput), (300 - 10), (width / 2) + textWidth(userInput), (300 + 10));
+      line((width / 2) + (textWidth(userInput) / 2) + 3, (height / 2) - 10, (width / 2) + (textWidth(userInput) / 2) + 3, (height / 2) + 10);
     }
+    
+    fill(owOrange);
+    noStroke();
+    rect((width / 2), (height - 200), 100, 38, 10);
+    
+    textFont(owFont);
+    fill(0);
+    textSize(24);
+    text("Anvend", (width / 2), (height - 200) + 10);
     
     textFont(robo);
   }
@@ -120,14 +130,48 @@ void playersSetup() {
   }
 }
 
-void saveSetPlayerAmount() { // game_controller
-  if (playerAmountSelected > 0 && mouseX >= (width / 2) - (100 / 2) && mouseX <= (width / 2) + (100 / 2) && mouseY >= (height - 200) - (38 / 2) && mouseY <= (height - 200) + (38 / 2)) {
+void saveSetPlayerAmount(boolean keyPres) { // game_controller
+  if (keyPres == true && playerAmountSet == false && playerAmountSelected > 0 || playerAmountSet == false && playerAmountSelected > 0 && mouseX >= (width / 2) - (100 / 2) && mouseX <= (width / 2) + (100 / 2) && mouseY >= (height - 200) - (38 / 2) && mouseY <= (height - 200) + (38 / 2)) {
      playerAmountSet = true;
   }
 }
 
+void saveAPlayersUsername(boolean keyPres) { // game_controller
+  if (keyPres == true && playerAmountSet == true && userInput.length() > 0 || playerAmountSet == true && userInput.length() > 0 && mouseX >= (width / 2) - (100 / 2) && mouseX <= (width / 2) + (100 / 2) && mouseY >= (height - 200) - (38 / 2) && mouseY <= (height - 200) + (38 / 2)) {
+    Player player = allPlayers.get(givePlayerNameIndex);
+    player.username = userInput;
+  }
+  
+  if (givePlayerNameIndex == (allPlayers.size() - 1)) {
+    playerDetailsSet = true;
+    runPlayersSetup = false;
+    gameStarted = true;
+  } else {
+    // For the ENTER key not pressed more then once (framerate)
+    if (userInput.length() > 0) {
+      givePlayerNameIndex++;
+    }
+  }
+  
+  userInput = "";
+}
+
 void keyPressed() {
-  if (playerAmountSet == true && playerDetailsSet == false) {
-    userInput += key;
+  if (playerAmountSet == true && playerDetailsSet == false && displayTitleScreen == false) {
+    if (key == BACKSPACE && key != ENTER && userInput.length() > 0) {
+      userInput = userInput.substring(0, userInput.length() - 1);
+    } else if (key != BACKSPACE && key != ENTER && userInput.length() < 25) {
+      userInput += key;
+    }
+  }
+  
+  if (key == ENTER && displayTitleScreen == false) {
+    saveSetPlayerAmount(true);
+    saveAPlayersUsername(true);
+  }
+  
+  // key on titlescreen
+  if (displayTitleScreen == true && gameStarted == false) {
+    displayTitleScreen = false;
   }
 }

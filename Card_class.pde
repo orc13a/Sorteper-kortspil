@@ -46,7 +46,7 @@ class Card {
     //frontImage.resize(imageW, imageH);
     image(this.frontImage, this.x, this.y, this.imageW, this.imageH);
     
-    if (isSelected == true) {
+    if (this.isSelected == true) {
       noFill();
       stroke(owOrange);
       strokeWeight(4);
@@ -69,8 +69,8 @@ class Card {
       cursor(ARROW);
     }
     
-    backImage.resize((backW - 50), (backW - 50));
-    image(backImage, backX, backY);
+    //backImage.resize((backW - 50), (backW - 50));
+    image(backImage, backX, backY, (backW - 50), (backW - 50));
     
     fill(255);
     stroke(0);

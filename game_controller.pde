@@ -120,7 +120,11 @@ void mousePressed() {
       }
     }
     
-    saveSetPlayerAmount(); // PlayerSetUp
+    saveSetPlayerAmount(false); // PlayerSetUp
+    
+    if (allPlayers.size() > 0) {
+      saveAPlayersUsername(false); // PlayerSetUp
+    }
   } else {
   
     // #########################

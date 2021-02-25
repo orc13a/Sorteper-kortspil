@@ -4,6 +4,7 @@ float usernameBoxW = 0;
 String prevPlayer = "";
 ArrayList<Player> playerRank = new ArrayList<Player>();
 int mostPairs = 0;
+int playerLoop = 0;
 boolean playerRankSet = false;
 
 void gameUI(Player player) {  
@@ -30,8 +31,9 @@ void gameUI(Player player) {
     rect(100, 93, usernameBoxW, 38, 0, 10, 0, 0);
     
     fill(0);
-    textSize(16);
-    text(player.username, 145, 118);
+    textFont(owFont);
+    textSize(24);
+    text(player.username, 145, 122);
     
     rectMode(CENTER);
     textAlign(CENTER);
@@ -41,7 +43,7 @@ void gameUI(Player player) {
     fill(0);
     textSize(16);
     text(player.pair, (100 + usernameBoxW) - 12.5, (100 + 38) + 11);
-    
+    textFont(robo);
     // rectMode(CENTER);
     // textAlign(CENTER);
     
@@ -56,24 +58,29 @@ void gameUI(Player player) {
     noStroke();
     rect(nextPlayerBtnX, nextPlayerBtnY, 100, 38, 10); // Button
     fill(255);
-    textSize(18);
-    text("Færdig", nextPlayerBtnX, (nextPlayerBtnY + 6)); // Button text
+    textFont(owFont);
+    textSize(25);
+    text("Færdig", nextPlayerBtnX, (nextPlayerBtnY + 10)); // Button text
+    textFont(robo);
     
     if (gameRound == 1){
       fill(0);
-      textSize(30);
-      text("Match dine par", width/2,nextPlayerBtnY);
+      textFont(owFont);
+      textSize(45);
+      text("Match dine par", width/2,nextPlayerBtnY + 15);
+      textFont(robo);
       textSize(defFontSize);
     }
   }
   
   if (loserFound == true) {
     fill(0);
-    textSize(40);
+    textFont(owFont);
+    textSize(70);
     text(player.username + " har tabt!", width / 2, 300);
     stroke(0);
     line((width / 2) - 200, 350, (width / 2) + 200, 350);
-    textSize(30);
+    textSize(35);
     text("Bedste spillere", (width / 2), 425);
     
     // To create an array with the player with most pairs first and then decending (most -> fewest pairs)
@@ -85,28 +92,30 @@ void gameUI(Player player) {
             playerRank.add(p);
           }
           
-          if (playerRank.size() == finishPlayers.size() - 1) {
+          if (playerLoop > finishPlayers.size()) {
             if (p.pair == 0) {
               playerRank.add(p);
             }
           }
         }
+        playerLoop++;
       }
       // Only want to make the rank array once
       playerRankSet = true;
     }
     
-    textSize(22);
+    textSize(26);
     
-    for (int i = 0; i < playerRank.size() - 1; i++) {
+    for (int i = 0; i < playerRank.size(); i++) {
       Player p = playerRank.get(i);
       
       if (i == 0) {
-        text((i + 1) + ". " + p.username + " med " + p.pair + " par", (width / 2), 500);
+        text(p.username + " - " + p.pair + " par", (width / 2), 500);
       } else {
-        text((i + 1) + ". " + p.username + " med " + p.pair + " par", (width / 2), 500 + (i * 25));
+        text(p.username + " - " + p.pair + " par", (width / 2), 500 + (i * 35));
       }
     }
+    textFont(robo);
   }
   
   if (nextPlayerAlert == true) {

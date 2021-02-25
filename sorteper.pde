@@ -1,5 +1,5 @@
 boolean gameStarted = false; // [DEV] "false" by default
-boolean displayTitleScreen = false; // [DEV] "true" by default
+boolean displayTitleScreen = true; // [DEV] "true" by default
 boolean runPlayersSetup = true; // [DEV] "true" by default
 boolean cardsGiven = false;
 
@@ -9,6 +9,8 @@ int defFontSize = 12;
 // Images
 PImage playerIconPlaceholder; // Image placeholder for player icon
 PImage gameBackgroundImage; // background image for when the game is started
+PImage owTitleDCLImage;
+PImage GearMenu;
 
 // Fonts
 PFont robo;
@@ -23,17 +25,17 @@ void setup() {
   fullScreen(); // Program window size
   background(0);
   
+  // To tell the user that the game is loading
+  text("Loading...", (width / 2), (height / 2));
+  
   // Placement of coordinates 
   rectMode(CENTER);
   textAlign(CENTER);
   imageMode(CENTER);
   
   // Better grafics
-  //smooth(8); // 2,3,4,8 values
+  smooth(8); // 2,3,4,8 values
   //pixelDensity(2); // 1 / 2 values
-  
-  // To tell the user that the game is loading
-  text("Loading...", (width / 2), (height / 2));
   
   robo = createFont("Roboto-Regular.ttf", defFontSize);
   roboMedium = createFont("Roboto-Medium.ttf", defFontSize);
@@ -42,8 +44,10 @@ void setup() {
   textFont(robo);
   
   // Load images
+  owTitleDCLImage = loadImage("ow-title-dlc.png");
   playerIconPlaceholder = loadImage("icon_placeholder.png");
   gameBackgroundImage = loadImage("game-bg-image.png");
+  GearMenu = loadImage("Gear.png");
   
   // To generate the cards
   generateCards(); // generateCards.pde
@@ -54,16 +58,29 @@ void draw() {
   
   // Checks if titlescreen should be displayed
   if (displayTitleScreen == true && gameStarted == false) {
-    // ---> Tegn title screen
+    background(255);
+    
+    fill(0);
+    textFont(owFont);
+    textSize(75);
+    text("Sorteper", (width / 2), 200);
+    
+    image(owTitleDCLImage, (width / 2), (height / 2));
+    
+    textSize(30);
+    fill(owOrange);
+    text("Tryk på en tast", (width / 2), (height - 100));
+    
+    textFont(robo);
   }
   
   // Checks if player usernames and player amount is et
-  if (runPlayersSetup == true && gameStarted == false) {
+  if (runPlayersSetup == true && gameStarted == false && displayTitleScreen == false) {
     playersSetup(); // PlayersSetup.pde
   }
   
   // Checks if playersSetup is finished and players are now ready for cards
-  if (runPlayersSetup == false && cardsGiven == false) {
+  if (runPlayersSetup == false && cardsGiven == false && displayTitleScreen == false) {
     giveCards(); // giveCards.pde
   }
   

@@ -42,6 +42,11 @@ void game() {
   
   if (allPlayers.size() == 1) {
     noMorePickCards = true;
+    
+    if (allPlayers.get(0).cards.get(0).id == 666) {
+      nextPlayerAlert = false;
+      loserFound = true;
+    }
   }
   
   if (playerPickFromIndex == playersAmount && loserFound != true && noMorePickCards != true) {
@@ -59,11 +64,11 @@ void game() {
     }
   }
   
-  if (totalPair == (allCards.size() - 1) / 2) {
+  /*if (totalPair == (allCards.size() - 1) / 2) {
     nextPlayerAlert = false;
     loserFound = true;
     noMorePickCards = true;
-  }
+  }*/
   
   // Game mecanichs that should only be displayed if the game is not paused or anything like that
   if (nextPlayerAlert == false && loserFound == false) {

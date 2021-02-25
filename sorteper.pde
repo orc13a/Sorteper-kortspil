@@ -1,6 +1,6 @@
 boolean gameStarted = false; // [DEV] "false" by default
 boolean displayTitleScreen = false; // [DEV] "true" by default
-boolean runPlayersSetup = true; // [DEV] "false" by default
+boolean runPlayersSetup = true; // [DEV] "true" by default
 boolean cardsGiven = false;
 
 // The default font size
@@ -9,6 +9,12 @@ int defFontSize = 12;
 // Images
 PImage playerIconPlaceholder; // Image placeholder for player icon
 PImage gameBackgroundImage; // background image for when the game is started
+
+// Fonts
+PFont robo;
+PFont roboMedium;
+PFont owFont;
+PFont owFontItalic;
 
 // Colors
 color owOrange = #F79D1A;
@@ -28,6 +34,12 @@ void setup() {
   
   // To tell the user that the game is loading
   text("Loading...", (width / 2), (height / 2));
+  
+  robo = createFont("Roboto-Regular.ttf", defFontSize);
+  roboMedium = createFont("Roboto-Medium.ttf", defFontSize);
+  owFont = createFont("big_noodle_titling.ttf", defFontSize);
+  owFontItalic = createFont("big_noodle_titling_oblique.ttf", defFontSize);
+  textFont(robo);
   
   // Load images
   playerIconPlaceholder = loadImage("icon_placeholder.png");

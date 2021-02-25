@@ -85,15 +85,11 @@ void game() {
     // Function that makes player able to pick pairs
     pairSelect(playersTurn, playerPickFrom);
   }
-  
-  if (loserFound == true) {
-    text(playersTurn.username + " LOSER", width / 2, height / 2);
-  }
-  
-  if (loserFound == false) {
+
+  //if (loserFound == false) {
     // Display the game UI (user interface)
     gameUI(playersTurn);
-  }
+  //}
 }
 
 void pairCounter() {
@@ -117,62 +113,73 @@ void pairCounter() {
 }
 
 void mousePressed() {
-  // #########################
-  //   Player index checking
-  // #########################
-  // Whitch player's turn it is
-  Player playersTurn;
-  
-  if (playersTurnIndex == playersAmount) {
-    playersTurnIndex = 0;
-    playersTurn = allPlayers.get(playersTurnIndex);
-  } else {
-    playersTurn = allPlayers.get(playersTurnIndex);
-  }
-  
-  // Which player the player is gonna pick a card from
-  Player playerPickFrom;
-  
-  if (allPlayers.size() == 1) {
-    noMorePickCards = true;
-  }
-  
-  if (playerPickFromIndex == playersAmount && loserFound != true && noMorePickCards != true) {
-    playerPickFromIndex = 0;
-    playerPickFrom = allPlayers.get(playerPickFromIndex);
-  } else {
-    if (noMorePickCards != true) {
-      if (playerPickFromIndex == -1) {
-        playerPickFrom = allPlayers.get(0);
-      } else {
-        playerPickFrom = allPlayers.get(playerPickFromIndex);
+  if (gameStarted == false) {
+    if (allPlayerAmountBtns.size() > 0) {
+      for (playerAmountBtn btn : allPlayerAmountBtns) {
+        btn.choose();
       }
+    }
+    
+    saveSetPlayerAmount(); // PlayerSetUp
+  } else {
+  
+    // #########################
+    //   Player index checking
+    // #########################
+    // Whitch player's turn it is
+    Player playersTurn;
+    
+    if (playersTurnIndex == playersAmount) {
+      playersTurnIndex = 0;
+      playersTurn = allPlayers.get(playersTurnIndex);
     } else {
-      playerPickFrom = allPlayers.get(0);
-    }
-  }
-  // #########################
-  
-  // Game mecanichs that should only be available if the game is not paused or anything like that 
-  if (nextPlayerAlert == false) {
-    nextPlayerButtonPress();
-    
-    // Cards in players hand
-    for (int i = 0; i < playersTurn.cards.size(); i++) {
-      Card card = playersTurn.cards.get(i);
-      card.handSelect();
+      playersTurn = allPlayers.get(playersTurnIndex);
     }
     
-    if (gameRound > 1) {
-      // Cards in players pick from hand
-      for (int i = 0; i < playerPickFrom.cards.size(); i++) {
-        Card card = playerPickFrom.cards.get(i);
-        card.oppSelect(playersTurn, playerPickFrom);
+    // Which player the player is gonna pick a card from
+    Player playerPickFrom;
+    
+    if (allPlayers.size() == 1) {
+      noMorePickCards = true;
+    }
+    
+    if (playerPickFromIndex == playersAmount && loserFound != true && noMorePickCards != true) {
+      playerPickFromIndex = 0;
+      playerPickFrom = allPlayers.get(playerPickFromIndex);
+    } else {
+      if (noMorePickCards != true) {
+        if (playerPickFromIndex == -1) {
+          playerPickFrom = allPlayers.get(0);
+        } else {
+          playerPickFrom = allPlayers.get(playerPickFromIndex);
+        }
+      } else {
+        playerPickFrom = allPlayers.get(0);
       }
     }
-  }
-  
-  if (nextPlayerAlert == true) {
-    nextPlayerButtonPressed();
+    // #########################
+    
+    // Game mecanichs that should only be available if the game is not paused or anything like that 
+    if (nextPlayerAlert == false) {
+      nextPlayerButtonPress();
+      
+      // Cards in players hand
+      for (int i = 0; i < playersTurn.cards.size(); i++) {
+        Card card = playersTurn.cards.get(i);
+        card.handSelect();
+      }
+      
+      if (gameRound > 1) {
+        // Cards in players pick from hand
+        for (int i = 0; i < playerPickFrom.cards.size(); i++) {
+          Card card = playerPickFrom.cards.get(i);
+          card.oppSelect(playersTurn, playerPickFrom);
+        }
+      }
+    }
+    
+    if (nextPlayerAlert == true) {
+      nextPlayerButtonPressed();
+    }
   }
 }

@@ -2,9 +2,12 @@ float nextPlayerBtnX;
 float nextPlayerBtnY;
 float usernameBoxW = 0;
 String prevPlayer = "";
+ArrayList<Player> playerRank = new ArrayList<Player>();
+int mostPairs = 0;
+boolean playerRankSet = false;
 
 void gameUI(Player player) {  
-  if (nextPlayerAlert == false) {
+  if (nextPlayerAlert == false && loserFound == false) {
     // Player details
     // Name and pair
     rectMode(CORNER);
@@ -61,6 +64,48 @@ void gameUI(Player player) {
       textSize(30);
       text("Match dine par", width/2,nextPlayerBtnY);
       textSize(defFontSize);
+    }
+  }
+  
+  if (loserFound == true) {
+    fill(0);
+    textSize(40);
+    text(player.username + " har tabt!", width / 2, 300);
+    stroke(0);
+    line((width / 2) - 200, 350, (width / 2) + 200, 350);
+    textSize(30);
+    text("Bedste spillere", (width / 2), 425);
+    
+    // To create an array with the player with most pairs first and then decending (most -> fewest pairs)
+    if (playerRankSet == false) {
+      while (playerRank.size() != finishPlayers.size()) {
+        mostPairs = 0;
+        for (Player p : finishPlayers) {
+          if (p.pair > mostPairs) {
+            playerRank.add(p);
+          }
+          
+          if (playerRank.size() == finishPlayers.size() - 1) {
+            if (p.pair == 0) {
+              playerRank.add(p);
+            }
+          }
+        }
+      }
+      // Only want to make the rank array once
+      playerRankSet = true;
+    }
+    
+    textSize(22);
+    
+    for (int i = 0; i < playerRank.size() - 1; i++) {
+      Player p = playerRank.get(i);
+      
+      if (i == 0) {
+        text((i + 1) + ". " + p.username + " med " + p.pair + " par", (width / 2), 500);
+      } else {
+        text((i + 1) + ". " + p.username + " med " + p.pair + " par", (width / 2), 500 + (i * 25));
+      }
     }
   }
   

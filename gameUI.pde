@@ -6,6 +6,7 @@ ArrayList<Player> playerRank = new ArrayList<Player>();
 int mostPairs = 0;
 int playerLoop = 0;
 boolean playerRankSet = false;
+boolean startGameEndAudio = true;
 
 void gameUI(Player player) {  
   if (nextPlayerAlert == false && loserFound == false) {
@@ -76,7 +77,16 @@ void gameUI(Player player) {
     }
   }
   
+  // UI for game end
   if (loserFound == true) {
+    if(startGameEndAudio == true) {
+      gameMusic.stop(); // Stopper musikken fra start skærmen
+      gameEndMusic.play(); // Starter musikken til spillet
+      gameEndMusic.amp(0.5);
+      
+      startGameEndAudio = false;
+    }
+    
     fill(0);
     textFont(owFont);
     textSize(70);
@@ -118,6 +128,14 @@ void gameUI(Player player) {
         text(p.username + " - " + p.pair + " par", (width / 2), 500 + (i * 35));
       }
     }
+    
+    fill(owOrange);
+    noStroke();
+    rect((width / 2), (height - 150), 100, 38, 10);
+    
+    fill(0);
+    text("Afslut", (width / 2), (height - 150) + 10);
+    
     textFont(robo);
   }
   
@@ -125,3 +143,9 @@ void gameUI(Player player) {
     nextPlayerAlertBox(player);
   }
 }
+
+void exitGame() {
+  if (loserFound == true && mouseX >= (width / 2) - (100 / 2) && mouseX <= (width / 2) + (100 / 2) && mouseY >= (height - 150) - (38 / 2) && mouseY <= (height - 150) + (38 / 2)) {
+    exit();
+  }
+};

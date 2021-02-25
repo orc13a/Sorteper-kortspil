@@ -13,12 +13,23 @@ boolean loserFound = false;
 boolean noMorePickCards = false;
 boolean aPlayerIsFinish = false;
 boolean totalPairChange = false;
+boolean startGameAudio = true;
 
 // Function that controls the game itself
 void game() {
   // Set background
   gameBackgroundImage.resize(width, height);
   image(gameBackgroundImage, (width / 2), (height / 2));
+  
+  // Music
+  if(startGameAudio == true) {
+    titleScreenAudio.stop(); // Stopper musikken fra start skærmen
+    gameMusic.play(); // Starter musikken til spillet
+    gameMusic.amp(0.5);
+    gameMusic.loop();
+    
+    startGameAudio = false;
+  }
   
   // If "færdig" button has been preesed should we go to the next player
   if (nextPlayerAlert == true) {
@@ -186,4 +197,6 @@ void mousePressed() {
       nextPlayerButtonPressed();
     }
   }
+  
+  exitGame(); // gameUI
 }

@@ -1,3 +1,10 @@
+import processing.sound.*;
+
+// Music
+SoundFile titleScreenAudio;
+SoundFile gameMusic;
+SoundFile gameEndMusic;
+
 boolean gameStarted = false; // [DEV] "false" by default
 boolean displayTitleScreen = true; // [DEV] "true" by default
 boolean runPlayersSetup = true; // [DEV] "true" by default
@@ -35,7 +42,7 @@ void setup() {
   
   // Better grafics
   smooth(8); // 2,3,4,8 values
-  //pixelDensity(2); // 1 / 2 values
+  pixelDensity(1); // 1 / 2 values [2 for HIGH grafics] (hight spec pc REALLY recommended)
   
   robo = createFont("Roboto-Regular.ttf", defFontSize);
   roboMedium = createFont("Roboto-Medium.ttf", defFontSize);
@@ -48,6 +55,14 @@ void setup() {
   playerIconPlaceholder = loadImage("icon_placeholder.png");
   gameBackgroundImage = loadImage("game-bg-image.png");
   GearMenu = loadImage("Gear.png");
+  
+  gameMusic = new SoundFile(this, "game-musik.mp3");
+  gameEndMusic = new SoundFile(this, "game-end-music.mp3");
+  
+  titleScreenAudio = new SoundFile(this, "ow_st_menu.mp3");
+  titleScreenAudio.play();
+  titleScreenAudio.loop();
+  titleScreenAudio.amp(0.2); // volume (0.0 - 1.0) [float]
   
   // To generate the cards
   generateCards(); // generateCards.pde

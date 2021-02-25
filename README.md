@@ -27,6 +27,9 @@ Dette projekt er del 2 af et kortspil forløb, hvor man i den første del skulle
 - Der skal være en popup som spørg som næste spiller har fået enheden.
 - Man skal kunne se hvilkens spillers tur det er og spillerens antal par.
 - Det skal være OOP.
+- Man skal kunne se hvem der er taberne og hvor mange par de andre spillere har fået når spillet er slut.
+- Første runde skal man kunne ligge alle sin par men eventuelt har fået givet fra starten af.
+- Man skal kun kunne trække et kort af gang per tur.
 
 ### 3. Design specifikationer
 Vores design skal være meget magen til Overwatch’s stil, dvs. baggrund, font m.m. Det vil bestå af et simplet stil billede fra overwatch som baggrund, og kortene vil være en blanding af selvlavede billeder og billeder klippet ud fra spillet.De udklippede billeder er placeholders, for de yderligere selvlavede billeder som ville blive lavet hvis spillet skal realiseres helt.

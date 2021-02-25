@@ -46,7 +46,7 @@ Man skal kunne se hvor mange kort en af de andre har før man vælger hvem man v
 Spillere skal selv kunne vælge kort
 
 ### 3. Design specifikationer
-Vores design skal være meget magen til Overwatch’s stil, dvs. baggrund, font m.m.
+Vores design skal være meget magen til Overwatch’s stil, dvs. baggrund, font m.m. Det vil bestå af et simplet stil billede fra overwatch som baggrund, og kortene vil være en blanding af selvlavede billeder og billeder klippet ud fra spillet. De udklippede billeder er placeholders, for de yderligere selvlavede billeder som ville blive lavet hvis spillet skal realiseres helt. I venstre hjørne af skærmen vil spillerens billede vises samt spillerens score, og imellem hver spillers tur kommer en besked der oplyser den næste spiller. Når spillet er ovre bliver taberen af spillet vist frem i midten af skærmen. Kortene i spillet har 2 forskellige farve blå og rød, og de er i stik af en rød og blå med samme figur.
 Dette er et skærm billede af hvordan det kommer til at se ud, når spillet er i gang. Kasper, er den spiller som skal trække fra en af de andre nu. Altså det er hans tur.
 De 3 ikoner i midten er de andre  spillere, Kasper kan vælge en af dem og efter kommer han til at kunne vælge selv hvilken en af de kort han vil trække.
 

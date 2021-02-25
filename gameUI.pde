@@ -9,6 +9,9 @@ boolean playerRankSet = false;
 
 void gameUI(Player player) {  
   if (nextPlayerAlert == false && loserFound == false) {
+    // menu
+    image(GearMenu, (width - 50), 50, 50, 50);
+    
     // Player details
     // Name and pair
     rectMode(CORNER);

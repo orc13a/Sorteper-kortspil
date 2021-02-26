@@ -69,14 +69,14 @@ class Player {
       
       playersAmount = allPlayers.size();
       
-      if (aPlayerIsFinish == false) {
+      /*if (aPlayerIsFinish == false) {
         if (playersTurnIndex == 0) {
           playerPickFromIndex = 0;
         } else {
           playersTurnIndex--;
           playerPickFromIndex--;
         }
-      }
+      }*/
       
       aPlayerIsFinish = true;
       

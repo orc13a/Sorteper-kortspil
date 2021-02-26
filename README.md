@@ -85,4 +85,8 @@ Flowchart
 Oliver C, Kasper, Gustav & Celia.<br>
 2.i Kerm/It - H. C. Ørsted Gymnasiet Lyngby
 
+- orc13a er Oliver C
+- DwarfyK er Kasper
+- Gust2491 er Gustav
+- cellebelle er Celia
 
